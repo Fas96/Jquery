@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+  <title></title>
+  <title>jquery-menus</title> <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  <script src="js/jquery-model-dialog.js"></script>
+
+</head>
+<body style="font-family: Arial">
+<form id="form1" runat="server">
+  <div id="dialog">
+    <table>
+      <tr>
+        <td>First Name</td>
+      </tr>
+      <tr>
+        <td><input type="text" id="txtFirstName" /></td>
+      </tr>
+      <tr>
+        <td>Last Name</td>
+      </tr>
+      <tr>
+        <td><input type="text" id="txtLastName" /></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+      </tr>
+      <tr>
+        <td><input type="text" id="txtEmail" /></td>
+      </tr>
+    </table>
+  </div>
+  <table id="employees" style="border-collapse: collapse" border="1">
+    <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <br />
+  <input type="button" id="btnAddEmployee" value="Add New Employee" />
+</form>
+</body>
+</html>

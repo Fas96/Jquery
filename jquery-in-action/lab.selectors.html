@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery in Action, 3rd edition</title>
+    <script src="./../js/vendor/jquery-2.2.0.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script>
+        $().ready(function (){
+
+            var checkboxValues = $('input[type="checkbox"][name="checkboxgroup"]:checked').map(function() {
+                return $(this).val();
+            }) .toArray();
+
+            //event handling
+            let myFunctionHandler=(event)=>{
+                alert("handler")
+            };
+
+            $('img').on({
+
+                click: function(event) {
+                    console.log('Button clicked!');
+                },
+                mouseenter: myFunctionHandler,
+                mouseleave: myFunctionHandler
+            });
+
+            // Create a custom filter to select elements having only numbers, letters, or the
+            // underscore (_) as their text.
+            // alert("fas")
+
+            // $.expr[":"].onlyText = $.expr.createPseudo(function(filterParam) {
+            //     return function(element, context, isXml) { return element.innerHTML.match(/^\w+$/);
+            //     } });
+            //
+            // //custom filters
+            // $.expr[':'].pointsHigherThan = $.expr.createPseudo(function(filterParam) {
+            //     var points = parseInt(filterParam, 10);
+            //     return function(element, context, isXml) {
+            //         return element.getAttribute('data-points') > points;
+            //     }; });
+            // var $elements = $('.levels li:pointsHigherThan(50)');
+
+            //creating element on page
+            $('<img>',{
+                width: '100px',
+                src: 'img/jquery-attribute-selector.png',
+                alt: 'Little Fas coding',
+                title: 'I woof in your general direction',
+                click: function () {
+                    console.log($(this).closest('a'))
+                }
+
+            }).tooltip({
+                track: true,
+                show: {delay :100,duration:100,effect:"slideDown"},
+                hide: {delay :100,duration:100,effect:"slideUp"}
+            }).appendTo('#imgDiv')
+
+            var index = $('#container').children().length;
+            var contents = $('#container').contents();
+            // alert(index+","+contents)
+
+            var allIDs = $('a').map(function() {
+                return $(this).attr('href');
+            })
+                .toArray();
+
+            var $allIDs = $('a').map(function() {
+                return $(this).attr('href');
+            });
+            console.log($allIDs)
+            console.log(allIDs)
+
+
+            var anArray = ['one', 'two', 'three'];
+
+            $.each(anArray, function(i, value) {
+                // Do something here
+            });
+            var anObject = {one:1, two:2, three:3};
+            $.each(anObject, function(name, value) {
+                // Do something here
+            });
+
+
+
+            var bigNumbers = $.grep(originalArray, function(value) {
+                return value > 100;
+            });
+
+
+            var badZips = $.grep(
+                originalArray,
+                function(value) {
+                    return value.match(/^\d{5}(-\d{4})?$/) !== null;
+                }, true );
+
+            var oneBased = $.map(
+                [0, 1, 2, 3, 4],
+                function(value) {
+                    return value + 1;
+                }
+            );
+
+            var strings = ['1', '2', '3', '4', 'S', '6'];
+            var values = $.map(strings, function(value) {
+                var result = new Number(value);
+                return isNaN(result) ? null : result;
+            });
+
+            var arr = $.makeArray({a: 1, b: 2});
+
+
+            var blackDivs = $('.black').get();
+            console.log('The black divs are: ' + blackDivs.length);
+            var allDivs = blackDivs.concat($('div').get()); console.log('The incremented divs are: ' + allDivs.length);
+            var uniqueDivs = $.unique(allDivs);
+            console.log('The unique divs are: ' + uniqueDivs.length);
+
+
+            var arr1 = [1, 2, 3, 4, 5];
+            var arr2 = [5, 6, 7, 8, 9];
+            var arr3 = $.merge(arr1, arr2);
+
+            $.param({
+                'a thing': 'it&s=value',
+                'another thing': 'another value',
+                'weird characters': '!@#$%^&*()_+='
+            });
+            $.param($('input'));
+        })
+    </script>
+
+    <style>
+        #languages td:nth-child(1){
+            background-color: #2aabd2;
+        }
+        #languages td:last-of-type{
+            background-color: #0F9E5E;
+        }
+
+        #languages tr:nth-child(2n+1){
+            background-color: seashell;
+        }
+    </style>
+</head>
+
+<body>
+<div id="imgDiv">
+
+    <a href="fas.com">Fas</a>
+</div>
+<div id="container">
+    <p>This is a text</p>
+    <img src="image.jpg" />
+    <a href="/">Homepage</a>
+    <img src="anotherImage.jpg" />
+    <p>Yet another text</p>
+</div>
+
+        <table id="languages">
+            <thead>
+            <tr>
+                <th>Language</th>
+                <th>Type</th>
+                <th>Invented</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Java</td>
+                <td>Static</td>
+                <td>1995</td>
+            </tr>
+            <tr>
+                <td>Ruby</td>
+                <td>Dynamic</td>
+                <td>1993</td>
+            </tr>
+            <tr>
+                <td>Smalltalk</td>
+                <td>Dynamic</td>
+                <td>1972</td>
+            </tr>
+            <tr>
+                <td>C++</td>
+                <td>Static</td>
+                <td>1983</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+</script>
+</body>
+</html>

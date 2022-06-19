@@ -1,0 +1,866 @@
+@charset "utf-8";
+
+
+
+@font-face {font-family: "Hyundai Sans Head Office";
+  src: url("../fonts/HyundaiSansHeadOffice_Regular.eot"); /* IE9*/
+  src: url("../fonts/HyundaiSansHeadOffice_Regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+  url("../fonts/HyundaiSansHeadOffice_Regular.woff2") format("woff2"), /* chrome、firefox */
+  url("../fonts/HyundaiSansHeadOffice_Regular.woff") format("woff"), /* chrome、firefox */
+  url("../fonts/HyundaiSansHeadOffice_Regular.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url("../fonts/HyundaiSansHeadOffice_Regular.svg#Hyundai Sans Head Office") format("svg"); /* iOS 4.1- */
+    
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Hyundai Sans Head Office';
+    src: local('Hyundai Sans Head Office Medium'), local('Hyundai-Sans-Head-Office-Medium'),
+        url('../fonts/HyundaiSansHeadOffice_Medium.woff2') format('woff2'),
+        url('../fonts/HyundaiSansHeadOffice_Medium.woff') format('woff'),
+        url('../fonts/HyundaiSansHeadOffice_Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+
+
+
+
+
+* {padding:0; margin:0;     -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;}
+
+/** 배경 추가 **/
+div.alf-hd {
+	background: #f3f5f7;
+}
+.alfresco-share div.sticky-wrapper {
+	background: #f3f5f7;
+}
+
+/*공통클래스*/
+.mgb_0 { margin-bottom:0px !important;}
+.mgt_0 { margin-top:0px !important;}
+.mgt_10 { margin-top:10px !important;}
+.mgt_20 { margin-top:20px !important;}
+.mgt_30 { margin-top:30px !important;}
+.mgt_0 { margin-top:0px !important;}
+.mgb_5 { margin-bottom:5px !important;}
+.mgb_10 { margin-bottom:10px !important;}
+.mgb_20 { margin-bottom:20px !important;}
+.mgb_30 { margin-bottom:30px !important;}
+.mgb_35 { margin-bottom:35px !important;}
+.mgb_40 { margin-bottom:40px !important;}
+.mgb_50 { margin-bottom:50px !important;}
+.mgb_60 { margin-bottom:60px !important;}
+
+.mgr_0 { margin-right:0px !important;}
+.mgr_5 { margin-right:5px !important;}
+.mgr_10 { margin-right:10px !important;}
+.mgr_20 { margin-right:20px !important;}
+.mgt_5 { margin-top:5px !important;}
+.mgt_10 { margin-top:10px !important;}
+.mgl_5 { margin-left:5px !important;}
+.mgl_10 { margin-left:10px !important;}
+
+.dp_none {  display: none; }
+.clear { clear:both !important;}
+.fl_none { float: none !important;}
+.fl_left{ float:left !important;}
+.fl_right{ float:right !important;}
+.al_right { text-align: right !important;}
+.al_left { text-align: left !important;}
+.al_center { text-align: center !important;}
+.bold_t { font-weight: bold !important;}
+.int_type01 {  height:22px;border:1px solid #b7b7b7; width:99.8%; vertical-align: middle; font-size: 14px;} 
+.int_br_none { border:0px !important;} 
+.select_type01 { border:1px solid #ccc; background: #fff;height:24px;  font-size:14px; vertical-align: middle; }
+.select_type02 { border:1px solid #b7b7b7; background: #fff;height:24px; width:99.8%;  font-size:12px; vertical-align: middle; }
+.textarea_type {width:99.8%; border:1px solid #cacaca; }
+
+/* 그리드 */
+.row_wrap {  position: relative; margin: 0 -15px; }
+.row_wrap:after {clear: both; }
+.row_wrap:after,
+.row_wrap:before { display: table;content: " "; }
+.col_4,
+.col_6 {  float: left; padding: 0 15px;  } 
+.col_4 { width:33.33333333%;} 
+.col_6 { width:50%; } 
+
+
+/* 메인화면 */
+.r2dr-dashboard .dashlet .profile {height:208px;}
+.r2dr-dashboard .avatar img {padding-bottom:5px;}
+.r2dr-dashboard .activities .activity {padding: 4px 0 7px 0px;}
+.r2dr-dashboard .my-activities .scrollableList {height:240px;}
+.r2dr-dashboard .my-sites .yui-dt-data td .yui-dt-liner { padding: 5px 34px 4px 10px;}
+.r2dr-dashboard .my-sites a.delete-site {display:none; }
+
+/* 로그인 */
+.login_wrap {   background: url(../img/background/login_bg.jpg) no-repeat 50% 50%;  width:100%; height: 100%; position: fixed;background-size: cover; } 
+.login_wrap .top_slogan_box { position: absolute; right:62px; top:36px;}
+.login_wrap .top_slogan_box img { width: 162px; height: auto;}
+
+.login_inner {    width:650px;height: 740px; position: absolute;top:50%; left:50%; margin: -370px 0 0 -325px; padding: 95px 100px 0px 100px;    background: #fff; border:1px solid #c1c1c1; }
+
+.login_inner h1 {     border-bottom: 1px solid #858585;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 30px;  }
+.login_inner h1 img {  width: 200px;height: auto;}
+.login_inner h2  {font-family: Hyundai Sans Head Office;  font-weight: 500;    color: #002c5f;  font-size: 45px; text-align: center;  margin-bottom: 45px; }
+
+.login_t_box p{ font-size: 35px; color: #000;font-family: Hyundai Sans Head Office;  font-weight: 500;  text-align: center; margin-bottom: 15px; }
+.login_t_box span { margin-bottom: 40px; display: block;font-family: Hyundai Sans Head Office;font-size: 20px; color: #000;  text-align: center;   }
+
+.login_contents {  margin: 0px 0 0 0; } 
+.login_contents .login_int_b {  height: 50px;  background:#efefef;   margin-bottom: 23px; padding: 2px 0 0 20px; transition:all 0.3s ease;  border-radius: 2px;  }
+
+.login_contents .login_int_b input {  height: 26px;  width:100%;border:0px; background: transparent;outline: none; font-size: 18px;  margin-top: 10px; font-family: Hyundai Sans Head Office; }
+.login_contents .pw_int {  }
+.login_contents .login_bt { background:#002c5f; border:1px solid #fff; height: 44px; display: block;  color: #fff; text-align: center;  font-weight: normal;  margin-bottom: 30px; position: relative;overflow: hidden;  transition: all 0.3s ease;   color: #fff;   line-height: 44px; width:280px !important; margin:0 auto 0 auto; font-size: 16px;  display: block; }
+.login_contents .login_bt:hover { color: #fff  }
+.login_chk_box { margin-bottom: 45px; }
+.login_chk_box label span  { font-size: 16px; color: #000;  display: inline-block;  }
+
+.ef_line {  box-shadow: 0 3px 26px rgba(0,0,0,0.2) !important; }
+.l_bottom_t { color: #fff;font-weight: 300; font-size: 12px;line-height: 16px;font-style: italic;  }
+.l_footer {  font-family: Hyundai Sans Head Office; font-size: 12px; color: #000; text-align: center;  display: block; }
+
+.login_reset_bt { text-align: center; margin: 10px 0 60px 0; }
+.login_reset_bt a{ display: inline-block; font-size:15px;  font-family: Hyundai Sans Head Office; color: #252525;    }
+
+/* 헤더 */
+.upper_header_wrap { box-shadow: 0 0 10px rgba(72,72,72,0.5);  background: #fff; padding-top:5px;}
+.upper_header_wrap .header_inner { width:1200px;margin: 0 auto; position: relative; height: 75px;   }
+.header_inner:after {clear: both; }
+.header_inner:after,
+.header_inner:before { display: table;content: " "; }
+
+
+/* 상단 프로필 */
+.top_profile_box { position: absolute; right:0; top:23px;}
+.top_profile_bt {background: url(../img/background/profile_member_icon.png) no-repeat 0 0px; padding: 0 0 0 36px;  }
+.top_profile_bt .bt_arrow { display: inline-block; background: url(../img/background/nav_drop_arr.png) no-repeat 0 0; width:10px; height: 5px;  margin-left: 4px;vertical-align: middle;}
+.top_profile_bt .dropdown-toggle { background: transparent; border:0px;  color: #252528; font-size: 14px; line-height: 30px; font-weight: bold; color: #000;}
+
+	
+
+/* 메뉴 하단 welcome 스타일 */
+.alfresco-share div.r2dr-header-Title { margin-bottom: 20px;  background: transparent;}
+.alfresco-share div.r2dr-header-Title .title_inner {width:90%; margin: 0 auto;  padding:  25px 0; overflow: hidden;  border-bottom: 1px solid #acacac;}
+.alfresco-share div.r2dr-header-Title .title_inner:after {clear: both; }
+.alfresco-share div.r2dr-header-Title .title_inner:after,
+.alfresco-share div.r2dr-header-Title .title_inner:before { display: table;content: " "; }
+
+.top_title {float: left;  font-size: 24px; color: #014da2;  font-weight: bold;}
+.top_title em {font-size: 12px; display:block;  color: #acacac; font-weight: normal; }
+
+/* 검색 스타일 */
+.top_search_box{border:1px solid #b1b1b1;  position: relative; padding: 3px 125px 0 28px; width:430px; height: 30px; float: right; margin: 10px 0 0 0;   background: #fff; border-radius: 15px;  background:#fff url(../img/background/top_search_bg.png) no-repeat 10px 8px;    }
+.top_search_box .ad_bt { display: block; width:20px; height: 20px; background: url(../img/background/top_searh_icon.png) no-repeat 0 0; text-indent: -99999px;  position: absolute; left:12px; top:4px;  }
+.top_search_box .clear_bt { display: block; width:20px; height: 20px; background: url(../img/background/top_searh_cancle.png) no-repeat 50% 50%; text-indent: -99999px;  position: absolute; right:6px; top:3px;  }
+.top_search_box .top_search_int { width:99.8%;border:0px;  height: 20px; font-size: 12px;  }
+
+.t_s_bt { position: absolute; right: -1px; top:-1px;height: 30px; border-radius: 0 15px 15px 0;text-align: center; line-height: 30px; color: #fff; background: #014da2; width: 120px;  border:0px; }
+.t_s_bt:hover { background: #044287; }
+
+/* 카피라이트 */
+.footer_wrap { border-top:1px solid #dadada; background-color: #fff; }
+.footer_wrap .footer_inner  {width:90%; margin: 0 auto;   overflow: hidden; padding: 20px 0; }
+.footer_wrap .footer_inner h2 { float: left; margin: 16px 0 0 2px;}
+.footer_wrap .footer_inner .copyright_box { float: left;  line-height: 18px;  margin: 10px 0 0 50px; font-size: 12px;color: #828282; }
+.footer_wrap .footer_inner .copyright_box span {  display: block;   }
+.footer_right_b { float: right; margin: 5px 0 0 0; }
+.footer_right_b h3 {font-size: 12px; font-weight: normal; color: #acacac;  float: left; padding: 5px 0 0 0;}
+
+.footer_user_t {overflow: hidden; font-size: 12px; border-left:1px solid #b0b0b0; margin: 0 0 0 100px; padding: 2px 0 2px 8px;}
+.footer_user_t span{display: block; float: left;  color: #acacac;  }
+.footer_user_t p{ margin: 0px 0 0 62px;   color: #acacac;   background: url(../img/background/footer_line03.png) no-repeat; background-position: 0 2px;  padding: 0 0 0 10px }
+.footer_user_t p em{ display: inline-block; }
+
+
+/* 메뉴 */
+.top_nav_wrap { float: left; margin-left: 250px }
+.nav_inner > ul > li  { float: left;   margin-right: 42px;}
+.nav_inner > ul > li:last-child  {  margin-right: 0px;}
+.alfresco-share .upper_header_wrap .r2dr-header-Menu  { width:90%; margin:auto; }
+.alfresco-share .upper_header_wrap .r2dr-header-Menu .dijitInline a,
+.alfresco-share .upper_header_wrap .r2dr-header-Menu .dijitInline span  { display: inline-block;  padding-left: 0px;font-size: 16px; color: #000;} 
+.alfresco-share .upper_header_wrap .r2dr-header-Menu img.nav_icon01 { background: url(../img/background/nav_icon01.png) no-repeat; background-position: 2px 0px; }
+.alfresco-share .upper_header_wrap .r2dr-header-Menu img.nav_icon02 { background: url(../img/background/nav_icon02.png) no-repeat; background-position: 8px 2px; }
+.alfresco-share .upper_header_wrap .r2dr-header-Menu img.nav_icon03 { background: url(../img/background/nav_icon03.png) no-repeat; background-position: 2px 0px; }
+.alfresco-share .upper_header_wrap .r2dr-header-Menu img.nav_icon04 { background: url(../img/background/nav_icon04.png) no-repeat; background-position: 2px 0px; }
+.alfresco-share .upper_header_wrap .r2dr-header-Menu img.nav_icon05 { background: url(../img/background/nav_icon05.png) no-repeat; background-position: 3px 2px; }
+.alfresco-share .upper_header_wrap .r2dr-header-Menu a:visited ,
+.alfresco-share .upper_header_wrap .r2dr-header-Menu a:active { color: #000; }
+.alfresco-share .upper_header_wrap .r2dr-header-Menu a:hover { color: #014da2; }
+.nav_inner > ul > li.open,
+.nav_inner > ul > li.on { background: #fff;}
+.nav_inner > ul > li.open a em,
+.nav_inner > ul > li.on a em{ color: #014da2;}
+.nav_inner  ul > li> .dropdown-menu{ border-top: 2px solid #003294; border-radius: 0px;padding: 8px 0; }
+.nav_inner .dropdown-menu>li>a {  color: #000; font-size: 13px;padding: 0 0 0 40px;  background: url(../img/background/nav_drop_bullet.png) no-repeat; background-position: 15px 4px;   line-height: 26px;font-weight: bold;}
+.nav_inner .dropdown-menu>li>a:hover,
+.nav_inner .dropdown-menu>li>a:active,
+.nav_inner .dropdown-menu>li>a:visited {  color: #000;  }
+.nav_inner .dropdown-menu>li  { margin: 0;  }		
+.nav_arrow {  display: inline-block;background: url(../img/background/nav_drop_arr.png) no-repeat 0 0;width: 10px;height: 5px; margin-left: 10px;vertical-align: middle; }
+
+.alfresco-share .upper_header_wrap .dijitReset.dijitInline.dijitMenuItemLabel.dijitMenuItem {
+    height: 40px; min-width: 104px; max-width: 164px;
+    margin: 18px 5px 0px 5px;
+}
+
+
+/* 메인 컨텐츠 */
+.main_container { width: 1200px; margin: 0 auto; padding: 20px 0 30px 0;}
+.brick_box { background: #ffff; border-radius: 10px; box-shadow: 0 1px 4px rgba(72,72,72,0.2); overflow:hidden; position: relative; height: 300px; margin-bottom: 30px;  transition:all 0.3s ease; }
+.brick_box:hover { box-shadow: 0 2px 15px rgba(72,72,72,0.6); }
+.brick_box h3{ font-weight: bold; color: #fff; font-size: 16px; line-height: 50px;  background:#014da2; padding: 0 0 0 20px; position: relative; }
+.brick_link { position: absolute; right:15px; top:15px; color: #fff; font-weight: bold; font-size: 12px;padding: 0 10px 0 0; background: url(../img/background/brick_link_arr.png) no-repeat right 50%;  }
+.brick_link:hover {  color: #fff;}
+.m_c_inner { padding: 15px;}
+
+.alfresco-share .r2dr-dashboard .title {
+    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
+    line-height: 50px;
+    background: #014da2;
+    padding: 0 0 0 20px;
+}
+
+.alfresco-share #bd {
+	width:90%; margin:-20px auto -0px auto;
+}
+
+.alfresco-share .alfresco-core-ProcessWidgets.side-margins {
+    width:90%; margin:-20px auto -0px auto;
+}
+
+.alfresco-share .r2dr-dashboard .profile .row {
+	padding-left:25px;
+}
+
+/* sub  */
+.sub_type .header_inner { width:1360px; margin: 0 auto; }
+.sub_type .title_inner { width:1360px; margin: 0 auto;  }
+.sub_container { width:1360px; margin: 0 auto; }
+.sub_footer .footer_inner {width:1360px; margin: 0 auto;  }
+
+.sub_wrap { overflow: hidden; margin-bottom: 48px;  position: relative;  }
+.sub_wrap:after { content: ''; display: block; clear: both; }
+
+.left_top_search  {padding: 0px;}
+.left_top_search dl dt {  display: none;}
+.left_top_search dl dd { position: relative; padding: 4px 30px 0 14px; background:#efefef; border:1px solid #a8a8a8;height: 38px; border-radius: 19px;  }
+.left_top_search dl dd  input { width:99.8%; height: 25px;border:none !important;background:#efefef;  outline: none;  font-size: 14px;  }
+
+.left_top_search dl dd .lt_search_bt {  display: block; position: absolute; right:0; top:0; background: url(../img/background/left_search_bt.png) no-repeat 5px 9px; width:30px; height: 36px; text-indent: -9999px;  } 
+
+
+
+
+/*.left_top_search .l_t_status { position: absolute; right:10px; top:28px; }*/
+.left_top_search .l_t_status{display: inline;margin: 6px;padding: 2px}
+.left_top_search .l_t_status .yui-button .first-child {border:0;  }
+.left_top_search .l_t_status .yui-button .first-child button { color: #002c5f; font-size: 18px;  }
+
+
+.status_actions_clicker{    margin-top: 14px;}
+.status_actions{padding: 5px 0 5px 5px;}
+.status_actions li{margin:2px;padding: 2px;}
+.status_actions ul li a {
+    display: block; text-align: left;  padding:  0 0 0 10px; background: url(../img/background/left_file_icon.png) no-repeat 18px 10px;  font-size: 14px; color: #000; padding: 8px 0 8px 45px;
+}
+#actions_image{
+    display: inline; text-align: left;  padding:  0 0 0 20px; background: url(../img/background/left_file_icon.png) no-repeat 18px 10px;  font-size: 14px; color: #000; padding: 8px 0 8px 45px;
+}
+#content_manager_image{
+    display: inline; text-align: left;  padding:  0 0 0 20px; background: url(../img/background/left_nav_arrow.png) no-repeat 18px 10px;  font-size: 14px; color: #000; padding: 8px 0 8px 45px;
+}
+.sticky-wrapper input[type="text"] { padding: 0px; }
+							
+.left_container { border:1px solid #e9e9e9; float: left; width:92%; }
+.left_nav { width:252px;  float: left;   position: relative;  padding: 0 6px 0 0;}
+
+.left_nav_h3 {background:#5587ed url(../img/background/left_nav_arrow.png) no-repeat 16px 16px;  display: block; height: 36px; line-height: 36px; padding: 0 0 0 34px;  font-size: 14px;   color: #fff; } 
+
+.status_list { padding: 10px 0 10px 20px; }
+.status_list ul li a{ display: block;  padding: 0 0 0 17px; background: url(../img/background/left_file_icon.png) no-repeat 0 5px;  color: #777; font-size: 12px; line-height: 22px;}
+
+.nav_split { position: absolute; right:0;top:0; width: 7px; background:#fff url(../img/background/nav_split_bg.png) no-repeat 50% 50%; height: 100%;
+border-right:1px solid #c5c5c5;border-left: 1px solid #e7e7e7; cursor: e-resize;zoom: 1; }
+.nav_split:hover { background:#eee url(../img/background/nav_split_bg.png) no-repeat 50% 50%; }
+ 
+.sub_middle { margin: 0 0 0 283px; }
+
+.tags_list {  padding: 10px 22px 10px 20px }
+.tags_list ul li { position: relative;   } 
+.tags_list ul li a{display: block; background: url(../img/background/left_list_bullet.png) no-repeat 0 12px; padding: 0 0 0 10px; line-height: 22px;  } 
+.tags_list ul li span {   display: block; position: absolute; right:0px;top:4px;  color: #7d7d7d; background: url(../img/background/round_bg.png) no-repeat left 0;padding: 0 0 0 7px;   } 
+.tags_list ul li span em {   display: block; height: 15px;padding: 0 7px 0 0;color: #777;   background:url(../img/background/round_bg.png) no-repeat right bottom;   line-height: 15px; font-size: 12px;     } 
+
+
+.list_top_box { border-bottom: 1px solid #e7e7e7;  height: 43px; }
+
+.list_top_box:before, .list_top_box:after  {   display: table; content: ""; }
+.list_top_box:after { clear: both; }
+
+.lt_left_bt { float: left; margin: 10px 0 0 0;}
+.lt_left_bt ul li{  float: left; margin-right: 26px; }
+.lt_left_bt ul li .dropdown-menu { top:30px; }
+.lt_left_bt ul li a{  font-size: 13px;  }
+
+.lt_left_bt ul li .lt_creat_icon {   background:url(../img/background/list_top_plus.png) no-repeat 0 3px;  padding: 0 0 0 18px;   }
+.lt_left_bt ul li .lt_upload_icon {   background:url(../img/background/list_top_upload.png) no-repeat 0 3px;  padding: 0 0 0 18px;   }
+
+.lt_left_bt .nav_arrow {  background:url(../img/background/list_top_arrow.png) no-repeat 0 0;     }
+
+.lt_right_bt { float: right;  border-left:1px solid #e7e7e7; height: 43px;  margin-right: 10px; padding: 10px 0 0 0;}
+.lt_right_bt ul li { float: left; margin-left: 20px;}
+.lt_right_bt ul .right_line { border-right:1px solid #e7e7e7;  padding: 0 10px 0 0; }
+.lt_right_bt ul li a{  font-size: 13px;  }
+.lt_right_bt ul li .dropdown-menu { top:30px; }
+
+.sort_icon  {   display: inline-block; width:16px; height: 16px; text-indent: -99999px;   }
+.asc_sort  {    background:url(../img/background/sort_icon.png) no-repeat 0 3px;  }
+
+.page_nav_box { padding: 10px 0}
+.page_nav_box ul li {float: left;  background:url(../img/background/page_nav_arrow.png) no-repeat left 50%; padding: 0 0 0 10px;  margin-left: 10px;  }
+.page_nav_box ul li a{ display: block; }
+.page_nav_box ul li .page_open {padding: 0 0 0 18px;  background:url(../img/background/page_nav_folder.png) no-repeat left 50%; }
+.page_nav_box ul .prev_li { background: none;   margin: 0;  padding: 0;}
+.page_nav_box ul .prev_li a{  background:url(../img/background/prev_arrow.png) no-repeat 0 3px; padding: 0 0 0 15px;  }
+
+#yui-main #alf-content{padding-left:10px; -webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}:before,:after{-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}
+
+#alf-filters h2.alfresco-twister {background:#5587ed;  display: block; height: 36px; line-height: 36px; padding: 0 0 0 54px;  font-size: 14px;   color: #fff; } 
+
+/*content manager*/
+#content-twister-cm{
+    background: #e7ebfa;
+    width: 100%;
+    font-size: 20px;
+    height: 40px;
+    align-items: center;
+    text-align: start;
+    text-align: start;
+    padding: 10px;
+    margin-bottom: 5px
+
+}
+
+#content-twister-cm-mg{
+
+}
+#alf-filters h2.alfresco-twister-closed {background:#5587ed;  display: block; height: 36px; line-height: 36px; padding: 0 0 0 54px;  font-size: 14px;   color: #fff; } 
+
+.yui-t1 #alf-details.yui-b {
+   height: auto;
+   float: right;
+   width: 250px;
+   background-color:#ccc;
+}
+
+#alf-filters h2.alfresco-twister {background: #0b6397 url(../img/background/bar_bg.png) repeat;  }
+
+.left .yui-button button { font-size:14px;}
+.right .yui-button button { font-size:14px;}
+.yui-b .header-bar {     height: 44px;padding: 9px 0px 0px 0px; }
+.yui-layout-unit-right .yui-layout-wrap { top: 0px !important;}
+
+.left_nav_box { background:#fff url(../img/background/nav_bar02.png) repeat-x 0 -6px;  }
+#alf-filters h2.alfresco-twister {padding: 0 0 0 32px !important; }
+.yui-layout-unit-bottom .yui-layout-bd  { background:#fff !important;  }
+.yui-b .treeview {  background:#fff url(../img/background/nav_bar02.png) repeat-x 0 -6px;  }
+
+#alf-filters h2.alfresco-twister-open { background: url(../img/background/left_nav_arrow.png) no-repeat 16px 16px; }
+.filter { background:#fff url(../img/background/nav_bar02.png) repeat-x 0 -6px;  }
+
+#yui-main #alf-content{padding-left:10px; -webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}:before,:after{-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}
+
+#history_cont h2 {display: none;}
+
+#permissions_cont h2 {display: none;}
+
+
+/** **/
+.yui-skin-lightTheme .yui-layout .yui-layout-unit div.yui-layout-bd {      border: 1px solid #e9e9e9;
+    border-bottom: none;
+    border-top: none;
+    text-align: left; }
+    
+.yui-skin-lightTheme .yui-layout .yui-layout-unit div.yui-layout-bd-noft {border: 1px solid #e9e9e9;  }
+.yui-skin-lightTheme .yui-layout .yui-layout-unit div.yui-layout-bd-nohd  { border: 1px solid #e9e9e9;  }
+
+.yui-skin-lightTheme .yui-layout .yui-layout-unit div.yui-layout-bd {background:#fff;}
+.right_container #detail-title { background:#3c84bf url(../img/background/bar_bg.png) repeat 0 0px;   }
+
+.object-finder div.picker-header { /* select user popup window */
+	height: 3em;
+}
+.my-sites .yui-dt-data td .yui-dt-liner {
+    padding: 4px 34px 4px 10px; 
+}
+.doclist .yui-dt-data td div.yui-dt-liner {
+    padding: 4px 10px 4px 10px;
+}
+.yui-skin-lightTheme div.yui-dt-liner h1,h2,h3 {
+    margin: 0px;
+}
+.people-finder div.search-bar, .group-finder div.search-bar {
+    border-bottom: 1px solid #ccc !important;
+    height: 3.5em !important;
+}
+.yui-dt15-col-avatar div.yui-dt-liner {
+    width: 80px;
+    overflow: hidden;
+}
+
+div.sticky-footer {height:0px; margin-top:20px;}
+
+.alfresco-twister span.alfresco-twister-actions {
+    display: none;
+}
+
+span.item-social {
+	display: none;
+}
+
+.my-sites .first-child {
+	display: none;
+}
+
+.dashlet .titleBarActions div.rss {
+    display: none;
+}
+
+div.toolbar {
+    min-height: 3.2em;
+}
+
+.downloadhistory .search-text input {
+	margin-top: 0px;
+}
+
+/*table */
+.r2dr_list_tbl { width:100%; border-top:1px solid #4b82bc; table-layout: fixed; }
+.r2dr_list_tbl thead th { background: #f3f3f3; border-bottom: 1px solid #9b9b9b;  padding: 7px 0; text-align: center; } 
+.r2dr_list_tbl tbody td {border-bottom: 1px solid #e3e3e3;padding: 10px; text-align: center; word-break: break-all; }
+.r2dr_list_tbl tbody th { padding: 10px; background: #f3f3f3; border-bottom: 1px solid #e3e3e3;}
+.r2dr_list_tbl tbody .alleft_td { text-align: left; }
+.r2dr_list_tbl tbody .alright_td { text-align: right; }
+.r2dr_list_tbl tbody .alcenter_td { text-align: center; }
+
+.r2dr_list_tbl .title_td { background: #f6f6f6; border-bottom: 1px solid #e3e3e3; border-right: 1px solid #e3e3e3; text-align: left; padding: 10px 10px; font-weight:bold;}
+.r2dr_list_tbl .td_subtotal{background: #f3f3f3; color:#0474bb; border-bottom: 2px solid #e3e3e3;}
+.r2dr_list_tbl .td_total{background: #f3f3f3; color:#a1001a; font-weight: bold; border-bottom: 2px solid #858585; }
+
+.r2dr_list_tbl tbody tr ul { margin-left: 20px; }
+.r2dr_list_tbl tbody tr ul li { margin-bottom: 3px; }
+.r2dr_list_tbl tbody tr ul li span { padding: 0px 0px 0px 5px; }
+
+
+.r2dr_list_tbl .list_chk { margin: 0;}
+
+
+
+.r2dr_blue_span { background: #4b82bc; color: #fff;  display: inline-block;  line-height: 25px; padding: 0 16px;  border-radius: 2px;  }
+.r2dr_red_span { background: #d5696d; color: #fff;  display: inline-block;  line-height: 25px; padding: 0 16px;  border-radius: 2px;  }
+
+.r2dr_blue_span:link,
+.r2dr_blue_span:hover,
+.r2dr_blue_span:visited,
+.r2dr_blue_span:active  {color: #fff; text-decoration: none !important;}
+
+/* Graphic Form */
+.r2dr_icon_trashcan { 
+	background: url(../img/background/trashcan.png) no-repeat 50%;
+    text-indent: -9999px;
+    overflow: hidden;
+    display: block;
+}
+
+/* fancytree */
+.fancytree-container {border:0px !important; border-color:#fff;}
+.fancytree-treefocus {border:0px !important; border-color:#fff;}
+
+.fancytree-container td {
+	font-family: tahoma, arial, helvetica;
+    font-size: 10pt;
+    white-space: nowrap;
+}
+
+.span_site.on { background-color: #cbe8f6; border: 1px solid #26a0da; }
+
+/* map-collection-1 */
+#table_map-collection-1.r2dr_list_tbl tbody tr ul li span { padding:0; }
+#table_map-collection-1.r2dr_list_tbl tbody td { height: 15em; vertical-align: top; }
+.r2dr_list_tbl tbody div.scrollable { height: 15em; overflow: auto; }
+
+/* map-collection-2-page */
+.map-collection-2 { background-color: #fff; }
+
+/* map-collection-2 fancytree table */
+#table_map-collection-2.r2dr_list_tbl tbody tr ul li span { padding:0; }
+#table_map-collection-2.r2dr_list_tbl #table_new_model tbody td { padding: 2px; }
+#table_map-collection-2.r2dr_list_tbl div.scrollable { height: 27em; }
+#table_map-collection-2.r2dr_list_tbl #td_new_model div.scrollable { overflow-x: hidden; }
+
+/* Localize Form */
+.mgt_group_box { border:1px solid #ddd; margin-bottom: 24px;  }
+
+.mgt_group_title { border-bottom: 2px solid #000; overflow: hidden; }
+.mgt_group_title span { line-height: 30px; color: #000; font-weight: bold; /*font-size: 18px;*/  float: left; padding: 0 0 0 12px;}
+.mgt_group_title .group_bt_box  {float: right; margin: 12px 7px  0 0;}
+.group_bt_box a{ display: block; float: left; background: #fff; border:1px solid #00508e; font-size: 12px;line-height: 25px; padding: 0 8px; color: #333; margin-left: -1px}
+.group_bt_box a:hover { background: #f9f9f9}
+
+.lang_box { display: inline-block; width: 40%; }
+.lang_arrow_box { display: inline-block; width: 10%; height: 310px; line-height: 155px; }
+	
+.mgt_list { padding: 10px 0; overflow-y: scroll; height: 280px; }
+.mgt_list ul li { padding: 0 0px 0 0; position: relative;} 
+.mgt_list ul li a { display: block; padding: 6px 76px 6px 17px; line-height: 16px; }
+.mgt_list ul li a:hover  {/*   background: #f3fce5;  */  color: #000; }  
+.mgt_list ul li .on  {  background: #f2f2f2 !important;color: #2f67ce !important;} 
+.mgt_list ul li a span { display: block; position: absolute; right:5px; top:50%; line-height: 22px; padding: 0 10px; border-radius: 11px;background: #fff; border:1px solid #ddd; color: #333;  margin-top: -12px;} 
+.mgt_list ul li a .gray_round  {  background:#fbfbfb; border:1px solid #dbdbdb; color: #838282;}
+
+.r2dr_icon_double_arrow_right { 
+	background: url(../img/background/double_arrow_right.png) no-repeat 50%;
+    text-indent: -9999px;
+    overflow: hidden;
+    display: block;
+    cursor: pointer;
+}
+.r2dr_icon_double_arrow_right.disabled { background: url(../img/background/double_arrow_right_disabled.png) no-repeat 50%; cursor: default; }
+
+.r2dr_icon_double_arrow_left { 
+	background: url(../img/background/double_arrow_left.png) no-repeat 50%;
+    text-indent: -9999px;
+    overflow: hidden;
+    display: block;
+    cursor: pointer;
+}
+.r2dr_icon_double_arrow_left.disabled { background: url(../img/background/double_arrow_left_disabled.png) no-repeat 50%; cursor: default; }
+
+
+/* Change And Replace From */
+.group_box { border:1px solid #ddd; margin: 5px 20px 0px 20px; }
+.group_title { border-bottom: 2px solid #000; overflow: hidden; }
+.group_title span { line-height: 30px; color: #000; font-weight: bold; /*font-size: 18px;*/  float: left; padding: 0 0 0 12px;}
+.group_title .group_bt_box  {float: right; margin: 12px 7px  0 0;}
+.group_content { padding: 15px; }
+
+.add_int_row {  position: relative; padding: 0 10em 0 10em; margin-bottom: 10px;} 
+.add_int_row .sel_type { position: absolute;  border:1px solid #e1e1e1;  background: #fff;padding: 2px 3px 0 3px; display: block; top:0; width: 9em; height: 30px;}
+.add_int_row .sel_type select {  border:0px; width:100%; height: 22px; background: #fff;  /*font-size: 14px;*/  }
+.add_int_row .sel_type span { line-height: 23px; }
+.add_int_row .first_sel  { left:0; border: 0px; }
+.add_int_row .last_sel  { right:0; border: 0px; background: none; padding: 0px; }
+.as_int_p  { border:1px solid #e1e1e1;  padding: 2px 3px 0 3px; height: 30px;}
+.as_int_p input[type="text"] { border:0px !important; /*height: 22px;*/ width:97% !important; }
+.as_int_p select {  border:0px; width:100%; height: 22px; background: #fff;  /*font-size: 14px;*/  }
+.as_int_p.none_border {border:0px;}
+.as_int_p span { margin: 0 20px 0 5px; }
+.add_int_row .sel_type .normal_bt  {background:#2466a9; line-height: 39px; height: 39px; text-align: center; padding: 0 26px; color: #fff; display: inline-block; width: 5em; }
+.add_int_row .sel_type .normal_bt:hover { background:#19538e; }
+
+.group_content .r2dr_list_tbl {border-top: 0px; }
+.group_content .r2dr_list_tbl tbody tr:last-child td { border-bottom: 0px; }
+
+
+/* Documentlibrary Left Filter Tags CSS custom */
+.filterLink li .tag a { background-color: #fff; }
+.filterLink li.selected .tag a { background-color: #eee; }
+
+/* Documentlibrary fullwindow CSS custom */
+.alf-fullwindow #doc3 .yui-layout-doc { top: 20px; left: 10px; }
+
+
+/*  */
+span.ico_delete_square {
+	background: url(../img/icon/ico_delete.png) no-repeat 0%;
+	display: inline-block;
+    margin-left: 9px;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    cursor: pointer;
+    cursor: hand;
+    top: 4px;
+} 
+
+/* */
+.sticky-wrapper h3.filename {
+    max-width: 600px;
+}
+
+#history_box .document-versions .alfresco-datatable h3 {
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal !important;
+    overflow: hidden;
+    width: 70% !important;
+}
+
+#history_box .document-versions .actions {
+    float: left;
+    width: 210px;
+    text-align: right;
+}
+
+/* Edit Properties Popup */
+.yui-dialog .edit-metadata.flat-button { display: none; }
+
+
+
+/* 스타일 추가 */
+
+.r2dr-logo-Logo .r2r-logo-header {  margin-top: 21px; }
+.upper_header_wrap { box-shadow: 0 0 10px rgb(72 72 72 / 50%); height: 70px; }
+.alfresco-share .upper_header_wrap .dijitReset.dijitInline.dijitMenuItemLabel.dijitMenuItem { height: 47px; }
+.alfresco-share .upper_header_wrap .dijitReset.dijitInline.dijitMenuItemLabel.dijitMenuItem{    min-width: initial;    max-width: initial; color: #a3a3a3;  }
+.alfresco-share .upper_header_wrap .r2dr-header-Menu .dijitInline a,
+.alfresco-share .upper_header_wrap .r2dr-header-Menu .dijitInline span {color: #a3a3a3;  max-width: initial;    font-family: Hyundai Sans Head Office;
+    font-size: 20px;    }
+.alfresco-share .upper_header_wrap .r2dr-header-Menu .dijitInline .alfresco-menus-AlfMenuBarPopup__arrow  { color:#000;   }
+.alfresco-share .upper_header_wrap .r2dr-header-Menu .dijitInline.on span a{ color:#000 }
+.alfresco-share .upper_header_wrap .r2dr-header-Menu .dijitInline { position: relative;}
+.alfresco-share .upper_header_wrap .r2dr-header-Menu .dijitInline:after  { content: ''; display: block; position: absolute; left:0;right:0; bottom:-6px; height: 3px; background: #022b5c; transition:all 0.3s ease; }
+.alfresco-share .upper_header_wrap .r2dr-header-Menu .dijitInline.on:after{  bottom:0; }
+
+
+.header_user_img { width: 37px; height: 37px; border-radius: 20px; overflow: hidden; text-align: center; padding: 0 !important; margin: 0 !important;  display: inline-block;  vertical-align: middle }
+.header_user_img img {  width: 37px; height: auto;}
+
+.header_user_t  { font-size: 17px !important; }
+
+.r2dr-header-User {  }
+
+.alfresco-share .upper_header_wrap .r2dr-header-User  .dijitReset.dijitInline.dijitMenuItemLabel.dijitMenuItem { /* margin: 8px 5px 0px 5px; */ }
+
+.alfresco-share .upper_header_wrap .r2dr-header-User  .dijitReset.dijitInline.dijitMenuItemLabel.dijitMenuItem span {vertical-align: middle; }
+
+
+
+
+
+
+
+.header_top_search_box {  float: left;margin: 12px 20px 0 0; }
+.header_top_search  { background: #efefef; height: 35px; border:1px solid #c8c8c8; border-radius: 18px; width: 270px; position:relative; padding: 3px 40px 0 16px;}
+.header_top_search_box .header_top_search .h_t_s_int {  outline: none; background: #efefef; border:none; width: 100%; height: 26px;  }
+.h_t_s_bt { position: absolute; right:0; top:0; width: 33px; height: 33px; background: url(../img/background/h_t_search_bt.png) no-repeat 50% 50%; border:none; text-indent: -9999px; overflow: hidden; }
+
+.r2dr-header-User { float: left; width: auto; }
+
+.dashlet { padding: 24px;  border-radius: 0px; box-shadow: 0 2px 12px rgba(72,72,72,0.1); border:0px; }
+
+
+
+
+.d_profile_modify { position: absolute; right:15px; top:15px; width: 42px; height: 42px;background:#002c5f url(../img/background/pencil_icon01.png) no-repeat 50% 50%;  text-indent: -9999px; overflow: hidden; border-radius: 21px; }
+.user_profile_top { overflow: hidden; border-bottom: 1px solid #696969; padding: 0 0 15px 0; margin-bottom: 15px; }
+.profile_img_box { width: 76px; height: 76px; overflow: hidden; border-radius:38px; float: left; margin: 0 !important;
+padding: 0 !important; }
+.profile_img_box img{ width: 78px; height: 98px;  }
+
+.user_profile_name { margin: 0 0 0  94px; padding: 15px 0 0 0;  }
+.user_profile_name p  { margin: 0; }
+.user_profile_name p a{ display: block; font-size:18px; font-weight: 500;    text-overflow: ellipsis;
+    white-space: nowrap; font-family:Hyundai Sans Head Office; 
+    word-wrap: normal;
+    overflow: hidden;
+    width: auto;  }
+.user_profile_name span {  display: block; font-size:14px; font-family:Hyundai Sans Head Office;   }
+
+.u_p_info { margin: 0 0 15px 0}
+.u_p_info dl { margin: 0; }
+.u_p_info dl dt { float: left;  padding: 0 0 0 22px;background:url(../img/background/user_mail_icon.png) no-repeat 0 3px; font-size: 14px; color: #000; }
+.u_p_info dl dd { margin: 0 0 0 136px; font-size: 14px; color: #000; }
+.u_p_info dl .u_p_tel {background:url(../img/background/user_phone_icon.png) no-repeat 2px 3px;  }
+.u_p_info dl .u_p_mobile {background:url(../img/background/user_mobile_icon.png) no-repeat 3px 5px;  }
+
+.u_p_bottom { text-align: center; padding: 15px 0 0 0;}
+.u_p_bottom a{display: inline-block;  line-height: 47px; border-radius: 24px; background: #002c5f; padding: 0 22px; color: #fff; font-size: 16px; }
+.u_p_bottom a:active,
+.u_p_bottom a:visited,
+.u_p_bottom a:hover { background: #002c5f;  color: #fff;  }
+
+.dash_box_top .m_h3_title, 
+.m_h3_title { font-family: Hyundai Sans Head Office; font-weight:500 !important;  border-bottom: 1px solid #cecece; font-size: 18px !important; color: #000;padding: 0 0 14px 0; margin-bottom: 14px;   }
+
+.none_line_type span { border:0px !important; }
+.none_line_type span button  {  color: #000 !important; font-size: 14px !important;  }
+
+
+
+.dash_box_top {  position: relative; }
+.dash_box_top .none_line_type {   margin: 0; }
+.d_t_right{ position: absolute; right:0;  top:-5px;  margin: 0;  }
+
+
+.recently_list_box {  min-height:150px;}
+.recently_list_box ul li {  padding: 0 0 0 34px; margin-bottom: 20px;  }
+.recently_list_box ul li:last-child { margin-bottom: 0px;  }
+.recently_list_box ul li a{display:block; padding: 0 30px 0 0; margin: 0 0 2px 0; position: relative; overflow: hidden; }
+.recently_list_box ul li a em { text-overflow: ellipsis; display:inline-block; color: #000;   
+    white-space: nowrap; font-style: normal;  position: relative;  padding: 0 24px 0 0;
+    word-wrap: normal; font-family: Hyundai Sans Head Office;
+    overflow: hidden;
+    width: auto;   }
+.recently_list_box ul li a em:after  { content: ''; display: block; width: 14px; height: 14px;background:url(../img/background/l_download_icon.png) no-repeat 0 0;  position: absolute; right:0px; top:0; }
+
+
+.recently_list_box ul li span {display: block; color: #a8a8a8;white-space: nowrap; font-style: normal;  
+    word-wrap: normal; font-family: Hyundai Sans Head Office;
+    overflow: hidden;
+    width: auto;    }
+
+
+.recently_list_box ul .l_pdf_icon { background:url(../img/background/list_pdf_icon.png) no-repeat 0 3px;  }
+.recently_list_box ul .l_word_icon { background:url(../img/background/list_word_icon.png) no-repeat 0 3px;  }
+.recently_list_box ul .l_code_icon { background:url(../img/background/list_code_icon.png) no-repeat 0 3px;  }
+
+.round_bt { color: #fff;  font-size: 14px; background: #002c5f; line-height: 33px !important;padding: 0 24px; border-radius: 18px;display: inline-block; border:0px; }
+
+.d_t_right .round_bt { display: block; float: left; margin: -3px 15px 0 0;}
+
+.mgb_0 { margin-bottom: 0px !important; }
+
+
+
+
+
+
+.list_tbl_wrap { background: #f5f5f5; overflow-y: scroll; height: 340px}
+.list_tbl_wrap table{ width: 100%;  }
+.list_tbl_wrap table thead th {  font-size: 12px; color: #000;  text-align: center; padding: 12px 5px; border-bottom: 1px solid #cecece;  }
+.list_tbl_wrap table tbody td  {  padding: 12px 5px;  border-bottom: 1px solid #cecece;  text-align: center;  color: #404040; }
+
+
+.tbl_active_t{ background: #d0fae5; border-radius: 20px; line-height: 17px; padding: 0 7px; display: inline-block; color: #4b8972 !important;  }
+
+
+
+
+.d_under_title  { font-family: Hyundai Sans Head Office; font-size: 17px; font-weight: 500 !important;  margin-bottom: 7px}
+
+
+.activiti_list {  position: relative; padding: 0 0 0 50px;  margin-bottom: 25px; }
+.activiti_list:last-child {   margin-bottom: 0px; }
+.a_l_img { width: 37px; height: 37px; overflow: hidden; position: absolute; left:0;top:0; border-radius: 20px; padding: 0 !important;  margin: 0 !important;  }
+.a_l_img img {  width: 100%; height: auto; }
+.text_by_icon  { display: inline-block; margin: 0 0 0 5px; vertical-align: middle; }
+.a_l_text { }
+.a_l_text p {font-family:Hyundai Sans Head Office;margin: 0 0 2px 0!important; padding: 0 !important; }
+.a_l_text p a{  display: inline-block; font-family: Hyundai Sans Head Office; font-size: 14px;  margin: 0 5px 0 0;}
+.a_l_text p .a_download_file {  color: #002c5f;  }
+.a_l_text p em { font-style: normal; }
+.a_l_text .u_g_text { font-size: 14px; color: #a8a8a8; display: block;font-family: Hyundai Sans Head Office; }
+                                    
+
+.d_site_tab_box{ overflow: hidden;  margin-top: -5px;}
+.d_site_tab_box ul li { float: left; width: 50%;  margin: 5px 0; }
+.d_site_tab_box ul li a{ display: block; padding: 0 0 0 23px;font-family: Hyundai Sans Head Office;  background:url(../img/background/site_tag_icon.png) no-repeat 0 1px; background-size: 16px auto;  font-size: 14px;   }
+
+
+.mytask_placeholder_box { height: 300px; padding: 68px 0 0 0;}
+.mytask_placeholder_box p {text-align: center; font-size: 18px; color: #a8a8a8;font-family: Hyundai Sans Head Office;  font-weight: 500; margin-bottom: 20px}
+.m_p_tbox  { padding:  85px 0 0 0;  background:url(../img/background/mytask_placeholder_icon.png) no-repeat 50% 0px;  }
+.m_p_tbox ul li { color: #a8a8a8;font-family: Hyundai Sans Head Office; font-size: 14px;  text-align: center;margin-bottom: 5px; }
+
+
+.login_header { background: #fff; text-align: center; border-bottom: 1px solid #888; height: 74px;  padding: 22px 0 0 0; }
+
+
+
+
+.yui-layout-doc { margin-top: 20px; }
+
+
+.yui-skin-lightTheme .yui-button button, 
+.yui-skin-lightTheme .yui-button a { font-family: Hyundai Sans Head Office;  }
+
+
+
+.yui-b .treeview { background: #fff; }
+
+#alf-filters h2.alfresco-twister { font-family: Hyundai Sans Head Office; background:#e7ebfa url(../img/background/left_nav_arrow_n.png) no-repeat 16px 13px !important;color: #002c5f;  font-size: 18px;  padding: 0 0 0 65px !important;  position: relative; } 
+
+#alf-filters h2.alfresco-twister-closed {   }
+#alf-filters h2.alfresco-twister-open { background:#e7ebfa url(../img/background/left_nav_arrow.png) no-repeat 16px 13px !important; color: #002c5f;  }
+
+#alf-filters h2:after   { content: ''; display: block; position: absolute; left:34px;top:8px; width: 26px; height: 26px;   }
+#alf-filters h2.left_tags_nav:after  {background: url(../img/background/site_tag_icon.png) no-repeat 0 0 }
+#alf-filters h2.left_folder_nav:after  { background: url(../img/background/folder_icon_l.png) no-repeat 0 0 }
+
+.left_filter_tag {  padding: 0 0 0 45px !important;   margin: 10px 0 0 0px !important;  }
+.left_filter_tag li {  }
+.left_filter_tag li span { font-family: Hyundai Sans Head Office; font-size: 15px  }
+
+
+.list_inner_type{ padding: 14px 40px 30px 40px}
+
+.yui-skin-lightTheme .list_inner_type .left { margin-left: -3px}
+.yui-skin-lightTheme .list_inner_type .left .yui-button .first-child {  border:1px solid #002c5f !important; border-radius: 17px; background-position-y: 50%; }
+
+.yui-skin-lightTheme .list_inner_type .yui-split-button button, 
+.yui-skin-lightTheme .list_inner_type .flat-button button { padding-right: 10px; padding-top: 3px; }
+.yui-skin-lightTheme .list_inner_type .left .yui-button .first-child .add_creat_icon { padding: 0 10px 0 17px; position: relative; }
+.yui-skin-lightTheme .list_inner_type .left .yui-button .first-child .add_creat_icon:after{ content: '';display: block; position: absolute; width: 10px; height: 10px;  background: url(../img/background/list_top_create_icon.png) no-repeat 0 0; left:0; top:9px;  }
+
+
+.file-upload .yui-button  .first-child { background:#002c5f !important; }
+.file-upload .yui-button  .first-child button { color:#fff !important;  position: relative;  padding: 5px 19px 0 17px;  }
+.file-upload .yui-button  .first-child button:after{ content: '';display: block; position: absolute; width: 10px; height: 12px;  background: url(../img/background/list_top_upload_icon.png) no-repeat 0 0; left:0; top:9px; }
+.yui-skin-lightTheme .list_inner_type .right .first-child button {  font-size: 18px; color: #002c5f;  }
+
+
+.doclist .documents .filename { font-family: Hyundai Sans Head Office;  color: #323130; }
+.doclist .documents .detail { min-height:auto; line-height: normal;  overflow: hidden; }
+.doclist .documents .detail span.item {  font-size: 10px; color: #8a8a8a; }
+
+.doclist .documents a.tag-link { color:#002c5f; font-size: 9px; background:#e7ebfa;border-radius: 10px; line-height: 13px; padding: 0 7px; display: inline-block; }
+.doclist .documents.yui-dt .yui-dt-data td { padding: 10px}
+
+.l_o_drop_area { position: relative; text-align: right; }
+.l_o_drop_bt { width: 26px; height: 26px; display: inline-block;overflow: hidden; text-indent:-9999px;background: url(../img/background/list_option_bt.png) no-repeat 50% 50%; text-align: left;   }
+
+/*.l_o_drop_box { background: #fff; position: absolute; right:8px; width: 172px; padding: 10px 0; box-shadow: 0 0 10px rgba(72,72,72,0.2); border-radius: 10px; z-index: 9 }*/
+/*.l_o_drop_box ul li a{ display: block; text-align: left;  padding:  0 0 0 20px; background: url(../img/background/list_option_icon.png) no-repeat 18px 10px;  font-size: 14px; color: #000; padding: 8px 0 8px 45px;}*/
+/*.l_o_drop_box ul li .l_o_view{ background: url(../img/background/list_option_icon.png) no-repeat 18px -29px; }*/
+/*.l_o_drop_box ul li .l_o_edit{ background: url(../img/background/list_option_icon.png) no-repeat 18px -69px; }*/
+/*.l_o_drop_box ul li .l_o_more{ background: url(../img/background/list_option_icon.png) no-repeat 18px -107px; }*/
+
+
+                                                                           
+
+.yui-skin-lightTheme .yui-layout { background: transparent;}
+
+.list_page_nav { overflow: hidden; margin-bottom:30px; margin-top: 10px }
+.list_page_nav ul li {padding: 0 0 0 15px;background: url(../img/background/page_nav_arr.png) no-repeat 0 50%;  font-size: 14px; color: #000;    font-family: Hyundai Sans Head Office; line-height: 20px; display: inline}
+.list_page_nav ul li:first-child  { padding: 0px; background: none;  font-size: 18px; color: #323130;    }
+
+
+
+.right_container  { background: #fff; padding: 22px 0 0 0;}
+.right_container #detail-title { padding: 0 0 0 27px; background: url(../img/background/info_icon.png) no-repeat 0 50%; font-family: Hyundai Sans Head Office;  font-size: 18px; color: #323130;margin: 0 15px 0 20px;  margin-bottom: 5px; }
+
+.box_inner_tab { overflow: hidden; }
+.box_inner_tab ul li{  float: left; width: 50%; }
+.box_inner_tab ul li a{  display: block;text-align: center; font-size: 14px; color: #323130; line-height: 40px; font-family: Hyundai Sans Head Office;}
+.box_inner_tab ul li a.acitive{  color: #002c5f; background: #e7ebfa; }
+
+.rc_nav .detail_item { border-bottom: 1px solid #d6d6d6; }
+.rc_nav li .rc_nav_a { background: url(../img/background/down_arr_black.png) no-repeat 20px 50%;  font-family: Hyundai Sans Head Office;  font-weight: 500;  } 
+.rc_nav .nav_active .rc_nav_a { background: url(../img/background/up_arr_black.png) no-repeat 20px 50%;   } 
+.rc_nav li ul li a{ font-family: Hyundai Sans Head Office;   display: block;  font-size: 14px; } 
+

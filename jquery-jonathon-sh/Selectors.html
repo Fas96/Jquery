@@ -1,0 +1,228 @@
+<html>
+<head>
+    <title>the title</title>
+    <script src="../js/vendor/jquery-2.2.0.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function() {
+            $('#selected-plays > li').addClass('horizontal');
+            // sub level class add
+            $('#selected-plays li:not(.horizontal)').addClass('sub-level');
+
+            $('a[href^="mailto:"]').addClass('mailto');
+            $('a[href$=".pdf"]').addClass('pdflink');
+            $('a[href*="mysite.com"]').addClass('mysite');
+
+            //add still with siblings
+            $('li:contains("Part")').siblings().addClass('special');
+
+            // $('li:contains("Part")').addClass('texthighlight');
+
+            $('td:contains("Henry")').parent().find('td:gt(0)').addClass('highlight');
+
+            $('li:contains("Part")').parent().find('li:eq(1)').addClass('texthighlight').end().find('li:eq(2)').addClass('texthighlight');
+            $('p:eq(1)').hide();
+            $('span.more').click(function() {
+                $('p:eq(1)').toggle()
+                // $(this).hide();
+            });
+            $('p:eq(3)').css('backgroundColor', '#fcf').hide();
+            $('p:eq(2)').css('backgroundColor', '#cff').click(function() {
+                $(this).slideUp('slow').next().slideDown('slow');
+            });
+
+            $('div.chapter a[href*=wikipedia]').each(function(index) {
+                var $thisLink = $(this);
+                $thisLink.attr({
+                    'rel': 'external',
+                    'id': 'wikilink-' + index,
+                    'title': 'learn more about ' + $thisLink.text() + ' at Wikipedia'
+                }); });
+
+            $('<a href="#top">back to top</a>').insertAfter('div.chapter p');
+            $('<a id="top" name="top"></a>').prependTo('body');
+            $('span.footnote').insertBefore('#footer');
+
+            $('<ol id="notes"></ol>').insertAfter('div.chapter'); $('span.footnote').each(function(index) {
+                $(this).before('<a href="#foot-note-' + (index+1) +'"id="context-' + (index+1) + '" class="context"><sup>'+ (index+1) + '</sup></a>').appendTo('#notes')
+                    .append( '&nbsp;(<a href="#context-' + (index+1) +
+                        '">context </a>)' ).wrap('<li id="foot-note-' + (index+1) + '"></li>');
+            });
+
+            $('span.pull-quote').each(function(index) {
+                var $parentParagraph = $(this).parent('p');
+                $parentParagraph.css('position', 'relative');
+                var $clonedCopy = $(this).clone(); $clonedCopy
+                    .addClass('pulled')
+                    .find('span.drop')
+                    .html('&hellip;')
+                    .end()
+                    .prependTo($parentParagraph)
+                    .wrap('<div class="pulled-wrapper"></div>');
+                var clonedText = $clonedCopy.text();
+                $clonedCopy.html(clonedText);
+            });
+        });
+    </script>
+    <style>
+        #notes li{
+            padding: 20px;
+        }
+        span.footnote {
+            font-style: italic;
+            font-family: "Times New Roman", Times, serif;
+            display: block;
+        }
+        .chapter span.footnote {
+            display: inline;
+        }
+        .pulled-wrapper {
+            background: url(pq-top.jpg) no-repeat left top;
+            position: absolute;
+            width: 160px;
+            right: -180px;
+            padding-top: 18px;
+        }
+        .pulled {
+            background: url(pq-bottom.jpg) no-repeat left bottom;
+            position: relative;
+            display: block;
+            width: 140px;
+            padding: 0 10px 24px 10px;
+            font: italic 1.4em "Times New Roman", Times, serif;
+        }
+
+        .special::first-letter {
+            font-size: 20px;
+            color: #8A2BE2;
+        }
+        a {
+            color: #00f;
+        }
+        a.mailto {
+            color: #f00;
+        }
+        .texthighlight{
+            background-color: #2aabd2;
+            color: tomato;
+        }
+
+
+        a.pdflink {
+            color: #090; /* make PDF links green */
+        }
+        a.mysite {
+            text-decoration: none; /* remove internal link underline */
+            border-bottom: 1px dotted #00f;
+        }
+
+        .sub-level {background-color: #ffc;}
+        .horizontal {
+            float: left;
+            list-style: none;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+<ul id="selected-plays">
+    <li>Comedies
+        <ul>
+            <li><a href="http://www.mysite.com/asyoulikeit/">MySite </a> </li>
+            <li>All's Well That Ends Well</li>
+            <li>A Midsummer Night's Dream</li>
+            <li>Twelfth Night</li>
+        </ul> </li>
+    <li>Tragedies
+        <ul>
+            <li><a href="hamlet.pdf">Hamlet</a></li>
+            <li>Macbeth</li>
+            <li>Romeo and Juliet</li>
+        </ul> </li>
+    <li>Histories
+        <ul>
+            <li>Henry IV (<a href="mailto:henryiv@king.co.uk">email</a>)
+                <ul>
+                    <li>Part I</li>
+                    <li>Part II</li>
+
+                </ul>
+            <li><a href="http://www.shakespeare.co.uk/henryv.htm"></a></li>
+            <li>Richard II</li>
+        </ul>
+    </li>
+</ul>
+</div>
+<br>
+<br>
+<div id="switcher" style="display: block">
+    <div class="label">Style Switcher</div>
+    <div class="button" id="switcher-large">
+        <div class="button" id="switcher-small">
+            <div class="speech">
+                <p>Fourscore and seven years ago our fathers brought forth on
+                    this continent a new nation, conceived in liberty, and dedicated
+                    to the proposition that all men are created equal.
+                    <span class="more">. . .</span>
+                </p>
+                <p>Now we are engaged in a great civil war, testing whether that nation, or any nation so conceived and so dedicated, can long endure. We are met on a great battlefield of that war. We have come to dedicate a portion of that field as a final resting-place for those who here gave their lives that the nation might live. It is altogether fitting and proper that we should do this. But, in a larger sense, we cannot dedicate, we cannot consecrate, we cannot hallow, this ground.</p>
+                <p>The brave men, living and dead, who struggled here have
+                    consecrated it, far above our poor power to add or detract. The
+                    world will little note, nor long remember, what we say here, but it
+                    can never forget what they did here. It is for us the living,
+                    rather, to be dedicated here to the unfinished work which they who
+                    fought here have thus far so nobly advanced.</p>
+                <p>It is rather for us to be here dedicated to the great task
+                    remaining before us&mdash;that from these honored dead we take
+                    increased devotion to that cause for which they gave the last full
+                    measure of devotion&mdash;that we here highly resolve that these
+                    dead shall not have died in vain&mdash;that this nation, under God,
+                    shall have a new birth of freedom and that government of the
+                    people, by the people, for the people, shall not perish from the
+                    earth.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1 id="f-title">Flatland: A Romance of Many Dimensions</h1>
+<div id="f-author">by Edwin A. Abbott</div>
+<h2>Part 1, Section 3</h2>
+<h3 id="f-subtitle">Concerning the Inhabitants of Flatland</h3>
+<div id="excerpt">an excerpt</div>
+<div class="chapter">
+    <p class="square">Our Professional Men and Gentlemen are Squares
+        (to which class I myself belong) and Five-Sided Figures or <a
+                href="http://en.wikipedia.org/wiki/Pentagon">Pentagons</a>.
+    </p>
+    <p class="nobility hexagon">Next above these come the Nobility, of
+        whom there are several degrees, beginning at Six-Sided Figures,
+        or <a href="http://en.wikipedia.org/wiki/Hexagon">Hexagons</a>,
+        and from thence rising in the number of their sides till they
+        receive the honourable title of <a href="http://en.wikipedia.org/
+       wiki/Polygon">Polygonal</a>, or many-Sided. Finally when the
+        number of the sides becomes so numerous, and the sides themselves
+        so small, that the figure cannot be distinguished from a <a
+                href="http://en.wikipedia.org/wiki/Circle">circle</a>, he is
+        included in the Circular or Priestly order; and this is the
+        highest class of all.
+    </p>
+    <p><span class="pull-quote">It is a <span class="drop">Law of
+       Nature</span> with us that a male child shall have <strong>one
+       more side</strong> than his father</span>, so that each
+        generation shall rise (as a rule) one step in the scale of
+        development and nobility. Thus the son of a Square is a Pentagon;
+        the son of a Pentagon, a Hexagon; and so on.
+    </p>
+    <p>Rarely&mdash;in proportion to the vast numbers of Isosceles births&mdash;is a genuine and certifiable Equal-Sided Triangle produced from Isosceles parents. <span class="footnote">"What need of a certificate?" a Spaceland critic may ask: "Is not the procreation of a Square Son a certificate from Nature herself, proving the Equal-sidedness of the Father?" I reply that no Lady of any position will marry an uncertified Triangle. Square offspring has sometimes resulted from a slightly Irregular Triangle; but in almost every such case the Irregularity of the first generation is visited on the third; which either fails to attain the Pentagonal rank, or relapses to the Triangular.</span> Such a birth requires, as its antecedents, not only a series of carefully arranged intermarriages, but also a long-continued exercise of frugality and self-control on the part of the would-be ancestors of the coming Equilateral, and a patient, systematic, and continuous development of the Isosceles intellect through many generations.
+    </p>
+    <p>The birth of a True Equilateral Triangle from Isosceles parents
+        is the subject of rejoicing in our country for many furlongs round. After a strict examination conducted by the Sanitary and Social Board, the infant, if certified as Regular, is with solemn ceremonial admitted into the class of Equilaterals. He is then immediately taken from his proud yet sorrowing parents and adopted by some childless Equilateral. <span class="footnote">The Equilateral is bound by oath never to permit the child henceforth to enter his former home or so much as to look upon his relations again, for fear lest the freshly developed organism may, by force of unconscious imitation, fall back again into his hereditary level.</span>
+    </p>
+    <p>How admirable is the Law of Compensation! <span class="footnote">
+And how perfect a proof of the natural fitness and, I may almost say, the divine origin of the aristocratic constitution of the States of Flatland!</span> By a judicious use of this Law of Nature, the Polygons and Circles are almost always able to stifle sedition in its very cradle, taking advantage of the irrepressible and boundless hopefulness of the human mind.&hellip;</p>
+    <!-- . . . code continues . . . -->
+</div>
+</body>
+</html>

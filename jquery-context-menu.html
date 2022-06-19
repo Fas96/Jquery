@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery-context-meu</title>
+
+    <script src="js/vendor/jquery-2.2.0.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(this).on('contextmenu click', function (e) {
+                e.preventDefault();
+                $('#divResult').append('Hyperlink default action prevented<br/>')
+                $('#divResult').append('Right click disabled<br/>')
+
+
+            });
+        });
+    </script>
+</head>
+<body style="font-family:Arial">
+<h3>
+    Right click disabled on this page. Try
+    to right click and see what happens
+</h3>
+
+<a id="myHyperLink" href="http://pragimtech.com">
+    Clicking on the link will not take you to PragimTech
+</a>
+<br /><br />
+<div id="divResult"></div>
+</body>
+
+
+</body>
+</html>

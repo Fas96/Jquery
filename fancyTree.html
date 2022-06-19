@@ -1,0 +1,326 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+    <!-- Place favicon.ico in the root directory -->
+    <script src="js/vendor/jquery-2.2.0.js"></script>
+    <script src="js/vendor/jquery.fancytree.js"></script>
+    <script src="js/vendor/jquery.fancytree-all.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/javascript" src="js/vendor/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/vendor/jquery-ui-1.13.1.js" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.30.2/jquery.fancytree-all-deps.min.js" />
+    <script
+            src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"
+            integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.20.0/jquery.fancytree-all.min.js"></script>
+    <script type="text/javascript" src="js/vendor/colResizable-1.6.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.contextMenu.min.js"></script>
+    <link rel="stylesheet" href="/css/jquery-ui-1.13.1.css"></link>
+    <link rel="stylesheet" href="/css/ui.fancytree.css"></link>
+    <link rel="stylesheet" href="/css/jquery.contextMenu.min.css"></link>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+<script type="text/javascript">
+
+    var CLIPBOARD = null;
+
+
+    $(function(){
+
+        $("#tree").fancytree({
+            treeId:"coll-path",
+            checkbox: true, // 체크박스 사용여부.
+            titlesTabbable: true, // Add all node titles to TAB chain
+            quicksearch: true,  // Jump to nodes when pressing first character
+            // 위에서 선언한 json코드를 여기에 넣는다.
+            //source: SOURCE,
+            selectMode:3,
+            source: { url: "ajax-tree-plain.json"}, // api패키지에 첨부된 json파일의 url이다.
+
+            contextMenu: {
+                menu: {
+                    "addChapter": { "name": "Add Chapter" },
+                    "addItem": { "name": "Add Item" },
+                    "addPel": { "name": "Add Pel" } ,
+                    "delete": { "name": "Delete" }
+                },
+                actions: function(node, action, options) {
+                    switch( action ) {
+                        case "addChapter":
+                            console.log();
+                            break;
+                        case "addItem":
+                            console.log();
+                            break;
+                        case "addPel":
+                            console.log();
+                            break;
+                        case "delete":
+                            console.log();
+                        default:
+                    }
+                }
+            },
+            extensions: ["edit", "dnd", "table", "gridnav","contextMenu"], // 필요한 확장 요소들
+
+            dnd: {//드래그앤드롭
+                preventVoidMoves: true,
+                preventRecursiveMoves: true,
+                autoExpandMS: 400,
+                dragStart: function(node, data) {
+                    return true; // 드래그 가능 : true
+                },
+                dragEnter: function(node, data) {
+                    // return ["before", "after"]; // 다른 노드의 앞,뒤에만 가능
+                    return true; // 자식노드로도 옮겨 넣을 수 있다.
+                },
+                dragDrop: function(node, data) {
+                    data.otherNode.moveTo(node, data.hitMode);
+                }
+            },
+            edit: { // title 수정
+                triggerStart: ["f2", "dblclick", "shift+click", "mac+enter","dblclick"], // 수정전환 키 조합
+                close: function(event, data) {
+                    if( data.save && data.isNew ){
+                        // Quick-enter: add new nodes until we hit [enter] on an empty title
+                        $("#tree").trigger("nodeCommand", {cmd: "addSibling"});
+                    }
+                }
+            },
+
+
+            table: {
+                indentation: 20,
+                nodeColumnIdx: 1,
+                checkboxColumnIdx: 0
+            },
+            gridnav: {
+                autofocusInput: false,
+                handleCursorKeys: true
+            },
+
+            modifyChild: function(event, data){
+                data.node.render(true); //This statement made all the difference
+                data.tree.info(event.type, data);
+            },
+            // createNode: function(event, data) {
+            //     var node = data.node,
+            //         $tdList = $(node.tr).find(">td");
+            //     if( node.isFolder() ) {
+            //         // $tdList.eq(2).prop("colspan", 6).nextAll().remove();
+            //     }
+            // },
+            renderColumns: function(event, data) {
+                // var node = data.node;
+                // var $tdList = $(node.tr).find(">td");
+                // {"title": "Nevermind", "type": "music", "author": "Nirvana", "year": 1991, "qty": 916, "price": 15.95},
+                var node = data.node;
+                var $tdList = $(node.tr).find(">td");
+                $tdList.eq(1).css("text-align","left");
+                $tdList.eq(2).find("input").attr("value",node.data.title);
+                $tdList.eq(2).find("input").attr("id","key_id-"+node.getIndexHier());
+
+
+
+                $tdList.eq(3).find("input").attr("id","legal-"+node.getIndexHier());
+                $tdList.eq(4).find("input").attr("value",node.data.type);
+                $tdList.eq(4).find("input").attr("id","id_data-"+node.getIndexHier());
+                $tdList.eq(5).find("input").attr("value",node.data.price);
+                $tdList.eq(5).find("input").attr("id","file_name-"+node.getIndexHier());
+                $tdList.eq(6).find("input").attr("value",node.data.year);
+                $tdList.eq(6).find("input").attr("id","pel-"+node.getIndexHier());
+
+            }
+        }).on("nodeCommand", function(event, data){
+            // Custom event handler that is triggered by keydown-handler and
+            // context menu:
+            var refNode, moveMode,
+                tree = $(this).fancytree("getTree"),
+                node = tree.getActiveNode();
+
+            switch( data.cmd ) {
+                case "moveUp":
+                    refNode = node.getPrevSibling();
+                    if( refNode ) {
+                        node.moveTo(refNode, "before");
+                        node.setActive();
+                    }
+                    break;
+                case "moveDown":
+                    refNode = node.getNextSibling();
+                    if( refNode ) {
+                        node.moveTo(refNode, "after");
+                        node.setActive();
+                    }
+                    break;
+                case "indent":
+                    refNode = node.getPrevSibling();
+                    if( refNode ) {
+                        node.moveTo(refNode, "child");
+                        refNode.setExpanded();
+                        node.setActive();
+                    }
+                    break;
+                case "outdent":
+                    if( !node.isTopLevel() ) {
+                        node.moveTo(node.getParent(), "after");
+                        node.setActive();
+                    }
+                    break;
+                case "rename":
+                    node.editStart();
+                    break;
+                case "remove":
+                    refNode = node.getNextSibling() || node.getPrevSibling() || node.getParent();
+                    node.remove();
+                    if( refNode ) {
+                        refNode.setActive();
+                    }
+                    break;
+                case "addChild":
+                    node.editCreateNode("child", "");
+                    break;
+                case "addSibling":
+                    node.editCreateNode("after", "");
+                    break;
+                case "cut":
+                    CLIPBOARD = {mode: data.cmd, data: node};
+                    break;
+                case "copy":
+                    CLIPBOARD = {
+                        mode: data.cmd,
+                        data: node.toDict(function(n){
+                            delete n.key;
+                        })
+                    };
+                    break;
+                case "clear":
+                    CLIPBOARD = null;
+                    break;
+                case "paste":
+                    if( CLIPBOARD.mode === "cut" ) {
+                        // refNode = node.getPrevSibling();
+                        CLIPBOARD.data.moveTo(node, "child");
+                        CLIPBOARD.data.setActive();
+                    } else if( CLIPBOARD.mode === "copy" ) {
+                        node.addChildren(CLIPBOARD.data).setActive();
+                    }
+                    break;
+                default:
+                    alert("Unhandled command: " + data.cmd);
+                    return;
+            }
+
+            // }).on("click dblclick", function(e){
+            //console.log( e, $.ui.fancytree.eventToString(e) );
+
+        }).on("keydown", function(e){
+            var cmd = null;
+
+            // console.log(e.type, $.ui.fancytree.eventToString(e));
+            switch( $.ui.fancytree.eventToString(e) ) {
+                case "ctrl+shift+n":
+                case "meta+shift+n": // mac: cmd+shift+n
+                    cmd = "addChild";
+                    break;
+                case "ctrl+c":
+                case "meta+c": // mac
+                    cmd = "copy";
+                    break;
+                case "ctrl+v":
+                case "meta+v": // mac
+                    cmd = "paste";
+                    break;
+                case "ctrl+x":
+                case "meta+x": // mac
+                    cmd = "cut";
+                    break;
+                case "ctrl+n":
+                case "meta+n": // mac
+                    cmd = "addSibling";
+                    break;
+                case "del":
+                case "meta+backspace": // mac
+                    cmd = "remove";
+                    break;
+                // case "f2":// already triggered by ext-edit pluging
+                //cmd = "rename";
+                //break;
+                case "ctrl+up":
+                    cmd = "moveUp";
+                    break;
+                case "ctrl+down":
+                    cmd = "moveDown";
+                    break;
+                case "ctrl+right":
+                case "ctrl+shift+right": // mac
+                    cmd = "indent";
+                    break;
+                case "ctrl+left":
+                case "ctrl+shift+left": // mac
+                    cmd = "outdent";
+            }
+            if( cmd ){
+                $(this).trigger("nodeCommand", {cmd: cmd});
+                // e.preventDefault();
+                // e.stopPropagation();
+                return false;
+            }
+        });
+
+    });
+</script>
+<table id="tree">
+     <colgroup>
+     <col width="30px">
+     <col width="50px">
+     <col width="350px">
+     <col width="50px">
+     <col width="50px">
+     <col width="30px">
+     <col width="30px">
+     <col width="50px">
+     </colgroup>
+     <thead>
+     <tr>
+         <th>Title</th>
+         <th>Type</th>
+         <th>Author</th>
+         <th>Year</th>
+         <th>Quantity</th>
+         <th>Price</th>
+     </tr>
+     </thead>
+ </thead>
+     <tbody>
+
+ </tbody>
+    </table>
+
+
+
+</body>
+
+</html>

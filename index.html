@@ -1,0 +1,150 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+  <script src="js/vendor/jquery-2.2.0.js"></script>
+  <script src="js/vendor/jquery.fancytree.js"></script>
+  <script src="js/vendor/jquery.fancytree-all.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+  <script type="text/javascript" src="js/vendor/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="js/vendor/jquery-ui-1.13.1.js" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.30.2/jquery.fancytree-all-deps.min.js" />
+  <script
+          src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"
+          integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA="
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.20.0/jquery.fancytree-all.min.js"></script>
+  <script type="text/javascript" src="js/vendor/colResizable-1.6.min.js"></script>
+  <link rel="stylesheet" href="/css/jquery-ui-1.13.1.css"></link>
+  <link rel="stylesheet" href="/css/ui.fancytree.css"></link>
+  <link rel="stylesheet" href="/css/jquery.contextMenu.min.css"></link>
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+  <p id="first-paragraph">Hello world! This is HTML5 Boilerplate.</p>
+
+
+  <h2>HTML Table</h2>
+
+  <table>
+    <tr class="small">
+      <th>Company</th>
+      <th>Contact</th>
+      <th>Country</th>
+    </tr>
+    <tr title="">
+      <td>Alfreds Futterkiste</td>
+      <td>Maria Anders</td>
+      <td>Germany</td>
+    </tr>
+    <tr class="small big">
+      <td>Centro comercial Moctezuma</td>
+      <td>Francisco Chang</td>
+      <td>Mexico</td>
+    </tr>
+    <tr class="small" title="">
+      <td>Ernst Handel</td>
+      <td>Roland Mendel</td>
+      <td>Austria</td>
+    </tr>
+    <tr class="big small" title="fas">
+      <td>Island Trading</td>
+      <td>Helen Bennett</td>
+      <td>UK</td>
+    </tr>
+    <tr>
+      <td>Laughing Bacchus Winecellars</td>
+      <td>Yoshi Tannamuri</td>
+      <td>Canada</td>
+    </tr>
+    <tr>
+      <td>Magazzini Alimentari Riuniti</td>
+      <td>Giovanni Rovelli</td>
+      <td>Italy</td>
+    </tr>
+  </table>
+
+  <br>
+  <p title="span-myselector">here we go</p>
+  <form>
+    <label for="fname">First name:</label><br>
+    <input type="number" id="fname" name="fname" value="12">  <br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" value="asasas" >
+  </form>
+
+  <br>
+  <form class="mb-5" method="post" id="contactForm" name="contactForm" novalidate="novalidate">
+    <p>Please select your preferred contact method:</p>
+    <div>
+      <input type="radio" id="contactChoice1"
+             name="contact" value="email">
+      <label for="contactChoice1">Email</label>
+
+      <input type="radio" id="contactChoice2"
+             name="contact" value="phone">
+      <label for="contactChoice2">Phone</label>
+
+      <input type="radio" id="contactChoice3"
+             name="contact" value="mail" checked>
+      <label for="contactChoice3">Mail</label>
+    </div>
+    <div class="row">
+      <div class="col-md-12 form-group">
+        <input type="text" class="form-control" name="name" value="val1" id="name" placeholder="Your name">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 form-group">
+        <input type="text" class="form-control" name="email"  value="val2" id="email" placeholder="Email">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 form-group">
+        <input type="text" class="form-control" name="subject"   value="val33" id="subject" placeholder="Subject">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 form-group">
+        <textarea class="form-control" name="message"  value="val1sdsds" id="message" cols="30" rows="7" placeholder="Write your message"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <input type="submit" value="Send Message"  value="vaasasl1" class="btn btn-primary rounded-0 py-2 px-4">
+        <span class="submitting"></span>
+      </div>
+    </div>
+  </form>
+
+
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>

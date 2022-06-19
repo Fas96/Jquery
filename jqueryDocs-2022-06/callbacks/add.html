@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Callbacks Add</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+
+<script>
+    let foo = function(  ) {
+        console.log( "callback fnx: " );
+    };
+
+    let bar = function( value ) {
+        console.log( "callback fnx@2: " + value );
+    };
+    let test = function( value ) {
+        console.log( "callback fnx@3: " + value );
+    };
+
+    let callbacks = $.Callbacks();
+
+    // Add the function "foo" to the list
+    callbacks.add( foo );
+    callbacks.disable();
+    // Fire the items on the list
+    callbacks.fire(   );
+    // Outputs: "foo: hello"
+    callbacks.disable();
+
+    // Add the function "bar" to the list
+    callbacks.add( bar );
+    // Fire the items on the list again
+    callbacks.fire( "world" );
+
+    // Outputs:
+    // "foo: world"
+    // "bar: world"
+
+    callbacks.add(test)
+    callbacks.fire("Testing asasasas")
+</script>
+</body>
+</html>

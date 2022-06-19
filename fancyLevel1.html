@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fas Fancy Tree</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.27.0/skin-win8/ui.fancytree.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.27.0/jquery.fancytree-all-deps.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.contextMenu.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.27.0/jquery.fancytree-all-deps.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.contextMenu.min.js" integrity="sha512-kvg/Lknti7OoAw0GqMBP8B+7cGHvp4M9O9V6nAYG91FZVDMW3Xkkq5qrdMhrXiawahqU7IZ5CNsY/wWy1PpGTQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.36.0/jquery.fancytree-all-deps.min.js"></script>
+
+    <script src="js/vendor/jquery.fancytree.contextMenu.js"></script>
+    <script src="js/vendor/jquery.fancytree.dnd.js"></script>
+    <script src="js/vendor/jquery.fancytree.edit.js"></script>
+    <script src="js/vendor/jquery.fancytree.childcounter.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.38.1/skin-themeroller/ui.fancytree.min.css" integrity="sha512-LtulT9+xwtALkeFjtiojm4zOrWyDR+qivwmAKI8DSMdtJnJP/cXlV2TfwbiGe3m4nHoWy2Jbgg+I7BKHqqo2Jg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.contextMenu.css" integrity="sha512-EF5k2tHv4ShZB7zESroCVlbLaZq2n8t1i8mr32tgX0cyoHc3GfxuP7IoT8w/pD+vyoq7ye//qkFEqQao7Ofrag==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        div[class='title']{
+            font-size: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 10px;
+
+        }
+       div[class='title-underline']{
+                     margin-left: 400px;
+                     margin-right: 400px;
+                     text-align: center;
+                     border-bottom: 1px solid #2aabd2;
+                    margin-bottom: 20px;
+
+       }
+        #title-undefined{
+            visibility: hidden;
+        }
+
+        .tree-item-input{
+            border-radius: 8px;
+            padding: 8px;
+            text-align: center;
+        }
+        .fancytree-container {
+            outline: none;
+        }
+        /* Fancytree extension 'table' */
+        table.fancytree-ext-table {
+            width: 100%;
+        }
+        /* Fancytree extension 'columnview' */
+        table.fancytree-ext-columnview {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        table.fancytree-ext-columnview tbody tr[0] {
+            height: 200px;
+        }
+        thead th{
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        #selected-action{
+            margin-top: 100px;
+            text-align: center;
+            border: 2px solid lightseagreen;
+            margin-left: 500px;
+            margin-right: 500px;
+            font-size: 30px;
+        }
+
+        span.selTag{
+            border: 1px outset #dec;
+            display: inline-block;
+            padding: 1px 3px;
+            margin: 1px 5px;
+            background-color: #dec;
+            border-radius: 5px;
+            cursor: pointer;
+            vertical-align: bottom;
+            position: relative;
+        }
+        span.selTag button.close{
+            border: 1px solid transparent;
+            border-radius: 5px;
+            padding: 0px 1px 2px 1px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: transparent;
+            visibility: hidden;
+        }
+        span.selTag:hover button.close{
+            border-color: gray;
+            background-color: #f99;
+            opacity: 0.8;
+            visibility: visible;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="title">Jquery Fancy Tree</div>
+<div class="title-underline"></div>
+
+<table id="treetable">
+    <colgroup>
+        <col width="8%"></col>
+        <col width="8%"></col>
+        <col width="8%"></col>
+        <col width="8%"></col>
+        <col width="8%"></col>
+        <col width="8%"></col>
+        <col width="8%"></col>
+    </colgroup>
+    <thead>
+    <tr>
+        <th></th>
+        <th>Key</th> <th>Folder</th> <th style="text-align: start">Title</th> <th style="text-align: start">Type</th> <th style="text-align: start">Author</th> <th>Year</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td></td>
+        <td></td>
+        <td>
+            <input type="input" class="tree-item-input" onChange="updateNode(this, 'data_field');" name="data_field" required>
+        </td>
+        <td>
+        <input type="input" class="tree-item-input" onChange="updateNodeCurrentValue(this, 'data_field');" name="data_field" required></td>
+        <td>
+            <input type="input" class="tree-item-input" onChange="updateNodeCurrentValue(this, 'data_field');" name="data_field" required>
+        </td>
+        <td>
+            <input type="input" class="tree-item-input" onChange="updateNodeCurrentValue(this, 'data_field');" name="data_field" required>
+        </td>
+        <td>
+            <input type="input" class="tree-item-input" onChange="updateNodeCurrentValue(this, 'data_field');" name="data_field" required>
+        </td>
+
+     </tr>
+    </tbody>
+
+</table>
+ <div id="selected-action"></div>
+<script>
+
+    $("#button1").click(function() {
+        var tree = $.ui.fancytree.getTree(),
+            node = tree.findFirst(function(n) {
+                return n.title === "The Hobbit";
+            });
+
+        node.toggleSelected();
+    });
+
+
+    $(function(){
+        $("#treetable").fancytree({
+            extensions: ["table",  "themeroller","edit",  "gridnav","contextMenu","childcounter"],
+            checkbox: true,
+            selectMode: 3,
+            childcounter: {
+                deep: true,
+                hideZeros: true,
+                hideExpanded: true
+            },
+
+            contextMenu: {
+            menu: {
+                "edit": { "name": "Edit", "icon": "edit" },
+                "cut": { "name": "Cut", "icon": "cut" },
+                "copy": { "name": "Copy", "icon": "copy" },
+                "paste": { "name": "Paste", "icon": "paste" },
+                "delete": { "name": "Delete", "icon": "delete", "disabled": true },
+                "sep1": "---------",
+                    "quit": { "name": "Quit", "icon": "quit" },
+                "sep2": "---------",
+                    "fold1": {
+                    "name": "Sub group",
+                        "items": {
+                        "fold1-key1": { "name": "Foo bar" },
+                        "fold2": {
+                            "name": "Sub group 2",
+                                "items": {
+                                "fold2-key1": { "name": "alpha" },
+                                "fold2-key2": { "name": "bravo" },
+                                "fold2-key3": { "name": "charlie" }
+                            }
+                        },
+                        "fold1-key3": { "name": "delta" }
+                    }
+                },
+                "fold1a": {
+                    "name": "Other group",
+                        "items": {
+                        "fold1a-key1": { "name": "echo" },
+                        "fold1a-key2": { "name": "foxtrot" },
+                        "fold1a-key3": { "name": "golf" }
+                    }
+                }
+            },
+            actions: function(node, action, options) {
+                $("#selected-action")
+                    .text("Selected action '" + action + "' on node " + node + ".");
+            }
+        },   select: function(event, data) {
+                // create a tag, when node is selected
+                var node = data.node;
+                $("span#tag-" + node.key).remove();
+                if(node.selected){
+                    $("<span>", {
+                        id: "tag-" + node.key,
+                        text: node.title,
+                        "class": "selTag"
+                    })
+                        .data("key", node.key)
+                        .append("<button class='close'>&times;</button>")
+                        .appendTo($("td#tags"));
+                }
+            },
+            edit: {
+                triggerStart: ["f2", "shift+click", "dblclick"],
+                close: function(event, data) {
+                    if (data.save && data.isNew) {
+                        // Quick-enter: add new nodes until we hit [enter] on an empty title
+                        $("#tree").trigger("nodeCommand", {
+                            cmd: "addSibling",
+                        });
+                    }
+                },
+            },
+            themeroller: {
+                addClass: "",
+                selectedClass: "ui-state-active"},
+            source: {
+                url: "https://cdn.rawgit.com/mar10/fancytree/72e03685/demo/ajax-tree-products.json"
+            },
+            activate: function(event, data) {
+            },
+            lazyLoad: function(event, data) {
+                data.result = { url: "https://cdn.rawgit.com/mar10/fancytree/72e03685/demo/ajax-tree-products.json"}
+            },
+            renderColumns: function(event, data) {
+                var node = data.node,
+                    $tdList = $(node.tr).find(">td");
+
+                $tdList.eq(1).css("text-align","center");
+                $tdList.eq(1).text(node.key);
+
+                $tdList.eq(2).css("text-align","center");
+                $tdList.eq(2).text(!!node.folder);
+
+
+                $tdList.eq(3).find("input").attr("value",node.title);
+                $tdList.eq(3).find("input").attr("id","title-"+node.getIndexHier());
+
+                if(!!node.folder!=true) {
+                    $tdList.eq(3).find("input").attr("value", node.type);
+                    $tdList.eq(3).find("input").attr("id", "type-" + node.getIndexHier());
+                }else{
+                    $tdList.eq("title-"+node.getIndexHier()).css("visibility","hidden")
+                }
+                // $tdList.eq(3).text(node.title);
+                $tdList.eq(3).find("input").attr("value",node.author);
+                $tdList.eq(3).find("input").attr("id","author-"+node.getIndexHier());
+
+                $tdList.eq(4).find("input").attr("value",node.type);
+                $tdList.eq(4).find("input").attr("id","title-"+node.key);
+
+                $tdList.eq(5).find("input").attr("value",node.data.author);
+                $tdList.eq(5).find("input").attr("id","title-"+node.data.author);
+
+                $tdList.eq(6).find("input").attr("value",node.data.year);
+                $tdList.eq(6).find("input").attr("id","title-"+node.data.year);
+
+                $tdList.eq(6).css("text-align","center");
+
+            }
+        }).on("nodeCommand", function(event, data){
+
+            var refNode, moveMode,
+                tree = $(this).fancytree("getTree"),
+                node = tree.getActiveNode();
+
+            switch( data.cmd ) {
+                case "moveUp":
+                    refNode = node.getPrevSibling();
+                    if( refNode ) {
+                        node.moveTo(refNode, "before");
+                        node.setActive();
+                    }
+                    break;
+                case "moveDown":
+                    refNode = node.getNextSibling();
+                    if( refNode ) {
+                        node.moveTo(refNode, "after");
+                        node.setActive();
+                    }
+                    break;
+                case "indent":
+                    refNode = node.getPrevSibling();
+                    if( refNode ) {
+                        node.moveTo(refNode, "child");
+                        refNode.setExpanded();
+                        node.setActive();
+                    }
+                    break;
+                case "outdent":
+                    if( !node.isTopLevel() ) {
+                        node.moveTo(node.getParent(), "after");
+                        node.setActive();
+                    }
+                    break;
+                case "rename":
+                    node.editStart();
+                    break;
+                case "remove":
+                    refNode = node.getNextSibling() || node.getPrevSibling() || node.getParent();
+                    node.remove();
+                    if( refNode ) {
+                        refNode.setActive();
+                    }
+                    break;
+                case "addChild":
+                    node.editCreateNode("child", "");
+                    break;
+                case "addSibling":
+                    node.editCreateNode("after", "");
+                    break;
+                case "cut":
+                    CLIPBOARD = {mode: data.cmd, data: node};
+                    break;
+                case "copy":
+                    CLIPBOARD = {
+                        mode: data.cmd,
+                        data: node.toDict(function(n){
+                            delete n.key;
+                        })
+                    };
+                    break;
+                case "clear":
+                    CLIPBOARD = null;
+                    break;
+                case "paste":
+                    if( CLIPBOARD.mode === "cut" ) {
+                        // refNode = node.getPrevSibling();
+                        CLIPBOARD.data.moveTo(node, "child");
+                        CLIPBOARD.data.setActive();
+                    } else if( CLIPBOARD.mode === "copy" ) {
+                        node.addChildren(CLIPBOARD.data).setActive();
+                    }
+                    break;
+                default:
+                    alert("Unhandled command: " + data.cmd);
+                    return;
+            }
+
+            // }).on("click dblclick", function(e){
+            //console.log( e, $.ui.fancytree.eventToString(e) );
+
+        }).on("keydown", function(e){
+            var cmd = null;
+
+            // console.log(e.type, $.ui.fancytree.eventToString(e));
+            switch( $.ui.fancytree.eventToString(e) ) {
+                case "ctrl+shift+n":
+                case "meta+shift+n": // mac: cmd+shift+n
+                    cmd = "addChild";
+                    break;
+                case "ctrl+c":
+                case "meta+c": // mac
+                    cmd = "copy";
+                    break;
+                case "ctrl+v":
+                case "meta+v": // mac
+                    cmd = "paste";
+                    break;
+                case "ctrl+x":
+                case "meta+x": // mac
+                    cmd = "cut";
+                    break;
+                case "ctrl+n":
+                case "meta+n": // mac
+                    cmd = "addSibling";
+                    break;
+                case "del":
+                case "meta+backspace": // mac
+                    cmd = "remove";
+                    break;
+                // case "f2":// already triggered by ext-edit pluging
+                //cmd = "rename";
+                //break;
+                case "ctrl+up":
+                    cmd = "moveUp";
+                    break;
+                case "ctrl+down":
+                    cmd = "moveDown";
+                    break;
+                case "ctrl+right":
+                case "ctrl+shift+right": // mac
+                    cmd = "indent";
+                    break;
+                case "ctrl+left":
+                case "ctrl+shift+left": // mac
+                    cmd = "outdent";
+            }
+            if( cmd ){
+                $(this).trigger("nodeCommand", {cmd: cmd});
+                // e.preventDefault();
+                // e.stopPropagation();
+                return false;
+            }
+        });
+
+        $("span#tags").on("click", "button.close", function(e){
+            // Bind live handler that deselects the node when user clicks 'x' of a tag
+            var key = $(e.target).parent().data("key"),
+                node = $.ui.fancytree.getTree().getNodeByKey(key);
+
+            node.setSelected(false);
+            return false; // do not bubble and trigger span click
+        }).on("click", "span.selTag", function(e){
+            // Bind live handler that activates the node, when tag is clicked
+            var key = $(e.target).data("key"),
+                node = $.ui.fancytree.getTree().getNodeByKey(key);
+
+            node.setActive();
+        });
+
+    });
+</script>
+</body>
+</html>

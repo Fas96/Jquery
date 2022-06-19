@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Munir</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+</head>
+<body>
+<h2 class="first-title"> First Title </h2>
+<p class="first-body"> First Body </p>
+<h2 class="second-title"> Second Title </h2>
+<p class="second-body"> Second Body </p>
+<h2 class="third-title"> Third Title </h2>
+<p class="third-body"> Third Body </p>
+<h2 class="fourth-title"> Forth Title </h2>
+<p class="fourth-body"> Forth Body </p>
+<h2 class="fifth-title"> Fifth Title </h2>
+<p class="fifth-body"> Fifth Body </p>
+<form id="command-form">
+    <b>CMD</b>
+
+
+                        <select class="user-action" name="user-action">
+                            <option value="modify">Modify</option>
+                            <option value="delete">Delete</option>
+                        </select>
+                        <select class="color-type" name="color-type">
+                            <option value="text-color">Color</option>
+                            <option value="background-color">BG-Color</option>
+                            <option value="text">Text</option>
+                        </select>
+                        to
+                        <input type='text' name="color-value"/>
+                        where
+                        <select class="div-section" name="div-section">
+                            <option value="first">First</option>
+                            <option value="last">Last</option>
+                            <option value="even">Even</option>
+                            <option value="odd">Odd</option>
+                            <option value="all">All</option>
+                        </select>
+                        <select class="change-title-body" name="change-title-body">
+                            <option value="title">Title</option>
+                            <option value="body">Body</option>
+                        </select>
+                        <input type="submit" value="OK"/>
+</form>
+
+</body>
+
+<script>
+    $().ready(function () {$("p[class*=body]").css({"width": "100%", "height": "100px", "border": "1px solid black", "border-radius": "8px", "text-align":"center"})})
+
+    $("#command-form").on('submit',userFormDataToPerformCSSStyle);
+
+    function userFormDataToPerformCSSStyle(e){
+        e.preventDefault()
+
+        function getDataFromForm() {
+            let dataFromForm = $("form").serializeArray();
+            let userIntendedAction = dataFromForm[0].value
+            let userIntendedColorType = dataFromForm[1].value
+            let userValue = dataFromForm[2].value
+            let sectionChange = dataFromForm[3].value
+            let changeTitleOrBody = dataFromForm[4].value
+            return {userIntendedAction, userIntendedColorType, userValue, sectionChange, changeTitleOrBody};
+        }
+
+        let {userIntendedAction, userIntendedColorType, userValue, sectionChange, changeTitleOrBody} = getDataFromForm();
+
+        //set the properties
+        let setter={}
+        let setterHTML={}
+
+        if(userIntendedAction==='modify'){
+            //change text color
+            if(userIntendedColorType==="text-color"){
+                setter["color"]=userValue
+            }
+            //change background-color
+            if(userIntendedColorType==="background-color"){
+                setter["background-color"]=userValue
+            }
+            //change Text
+            if(userIntendedColorType==="text"){
+                setterHTML=userValue
+            }
+            // effect on section sectionChange
+            let selector=""
+            if(changeTitleOrBody==='body'){
+                selector="body"
+            }else if(changeTitleOrBody==='title'){
+                selector="title"
+            }
+
+            let apply=""
+            //section to change
+            if(changeTitleOrBody==='title'||changeTitleOrBody==='body'){
+                if(sectionChange==='first'){
+
+                    $(".first-"+selector).css(setter)
+                    if(userIntendedColorType==="text"){
+                        $(".first-"+selector).html(setterHTML)
+                    }
+
+                }
+                if(sectionChange==='last'){
+                    if(selector==="title"){
+                        $("h2:last").css(setter)
+                        if(userIntendedColorType==="text"){
+                            $("h2:last").html(setterHTML)
+                        }
+                    }else if (selector==="body"){
+                        $("p").last().css(setter)
+                        if(userIntendedColorType==="text"){
+                            $("p:last").html(setterHTML)
+                        }
+                    }
+                }
+                if(sectionChange==='even'){
+                    if(selector==="title"){
+                        $("h2").even().css(setter)
+                        if(userIntendedColorType==="text"){
+                            $("h2").even().html(setterHTML)
+                        }
+                    }else if (selector==="body"){
+                        $("p").even().css(setter)
+                        if(userIntendedColorType==="text"){
+                            $("p").even().html(setterHTML)
+                        }
+                    }
+                }
+                if(sectionChange==='odd'){
+                    if(selector==="title"){
+                        $("h2").odd().css(setter)
+                        if(userIntendedColorType==="text"){
+                            $("h2").odd().html(setterHTML)
+                        }
+                    }else if (selector==="body"){
+                        $("p").odd().css(setter)
+                        if(userIntendedColorType==="text"){
+                            $("p").odd().html(setterHTML)
+                        }
+                    }
+                }
+                if(sectionChange==='all'){
+                    if(selector==="title"){
+                        $("h2").css(setter)
+                        if(userIntendedColorType==="text"){
+                            $("h2").html(setterHTML)
+                        }
+                    }else if (selector==="body"){
+                        $("p").css(setter)
+                        if(userIntendedColorType==="text"){
+                            $("p").html(setterHTML)
+                        }
+                    }
+                }
+            }
+
+
+            console.log(setter,selector)
+
+        }else if (userIntendedAction==='delete'){
+
+
+
+        }
+
+
+
+    }
+
+
+
+</script>
+</html>

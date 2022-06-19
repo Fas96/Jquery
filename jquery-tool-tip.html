@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery-tooltip</title>
+    <script src="js/vendor/jquery-2.2.0.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script>
+
+        $().ready(function () {
+            $(document).tooltip({
+
+                track: true,
+                show: {delay :100,duration:500,effect:"slideDown"},
+                hide: {delay :100,duration:500,effect:"slideUp"}
+            });
+        })
+
+    </script>
+</head>
+<body>
+
+
+<h2>HTML Forms</h2>
+
+<form action="/action_page.php" title="User info Submission form">
+    <label for="fname" title="user first name Label">First name:</label><br>
+    <input type="text" id="fname" name="fname" value="John" title="user name"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname" value="Doe"><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+
+</body>
+</html>

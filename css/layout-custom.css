@@ -1,0 +1,56 @@
+.login_header {
+    padding: 15px 0 0 0;
+}
+
+.profile_img_box { text-align: center; }
+.profile_img_box img { width: auto; height: auto; }
+
+
+.l_o_drop_area { position: relative; text-align: right !important; }
+.l_o_drop_bt { width: 26px; height: 26px; display: inline-block;overflow: hidden; text-indent:-9999px;background: url(../img/background/list_option_bt.png) no-repeat 50% 50%; text-align: left;   }
+
+.l_o_drop_box { background: #fff; position: absolute; right:8px; width: 172px; padding: 10px 0; box-shadow: 0 0 10px rgba(72,72,72,0.2); border-radius: 10px; z-index: 9; margin-right: 20px; }
+.l_o_drop_box div a{ display: block; text-align: left;  padding:  0 0 0 20px; background: url(../img/background/list_option_icon.png) no-repeat 18px 10px;  font-size: 14px; color: #000; padding: 8px 0 8px 45px;}
+.l_o_drop_box div a span { text-align: left; }
+
+
+
+.dashlet.my-sites .yui-dt-rec {  position: relative; padding: 0 0 0 50px;  margin-bottom: 25px; }
+.dashlet.my-sites .yui-dt-rec:last-child {   margin-bottom: 0px; }
+.dashlet.my-sites .toolbar { display: none; }
+
+.dashlet.my-sites .yui-dt-rec .yui-dt5-col-icon .yui-dt-liner { width: 37px; height: 37px; overflow: hidden; position: absolute; left:0;top:0; border-radius: 20px; padding: 0 !important;  margin: 0 !important;  }
+.dashlet.my-sites .yui-dt-rec .yui-dt5-col-icon .yui-dt-liner img {  width: 100%; height: auto; }
+.dashlet.my-sites .yui-dt-rec .yui-dt5-col-detail { }
+.dashlet.my-sites .yui-dt-rec .yui-dt5-col-detail h3.site-title {font-family:Hyundai Sans Head Office;margin: 0 0 2px 0!important; padding: 0 !important; }
+.dashlet.my-sites .yui-dt-rec .yui-dt5-col-detail h3.site-title a{  display: inline-block; font-family: Hyundai Sans Head Office; font-size: 14px;  margin: 0 5px 0 0;}
+.dashlet.my-sites .yui-dt-rec .yui-dt5-col-detail div.detail { font-size: 14px; color: #a8a8a8; display: block;font-family: Hyundai Sans Head Office; }
+.dashlet.my-sites .yui-dt-rec .yui-dt5-col-detail div.detail.detail-social { display: none; }
+
+.alfresco-share .upper_header_wrap .r2dr-header-User  .dijitReset.dijitInline.dijitMenuItemLabel.dijitMenuItem { margin: 15px 5px 0px 5px; }
+
+.dashlet .toolbar.d_t_right { border-bottom: none; }
+
+.dashlet.my-tasks div.body div.empty + .dashlet.my-tasks div.body { display: none; }
+
+.dashlet.my-tasks .mytask_placeholder_box { height: unset; padding: 10px 0 0 0; }
+
+.alfresco-share .upper_header_wrap .r2dr-header-Menu img.nav_icon01 { background: url(../img/background/nav_icon01.png) no-repeat; background-position: 2px 0px; top: -2px; }
+.alfresco-share .upper_header_wrap .r2dr-header-Menu img.nav_icon02 { background: url(../img/background/nav_icon02.png) no-repeat; background-position: 8px 2px; }
+.alfresco-share .upper_header_wrap .r2dr-header-Menu img.nav_icon03 { background: url(../img/background/nav_icon03.png) no-repeat; background-position: 2px 2px !important; }
+.alfresco-share .upper_header_wrap .r2dr-header-Menu img.nav_icon04 { background: url(../img/background/nav_icon04.png) no-repeat; background-position: 2px 0px; top: -2px; }
+.alfresco-share .upper_header_wrap .r2dr-header-Menu img.nav_icon05 { background: url(../img/background/nav_icon05.png) no-repeat; background-position: 3px 2px; }
+.alfresco-share .upper_header_wrap .r2dr-header-Menu img.nav_icon06 { background: url(../img/background/nav_icon06.png) no-repeat; background-position: 0px 0px; top: -4px; background-size: 18px 18px; }
+.alfresco-share .upper_header_wrap .r2dr-header-Menu img.nav_icon07 { background: url(../img/background/nav_icon07.png) no-repeat; background-position: 0px 0px; top: -3px; background-size: 17px 17px; }
+
+
+.top_button_box { float:right; display: inline-block; margin-bottom: 10px; }
+.top_button_box button {     
+	border: 1px solid #002c5f !important;
+    border-radius: 17px;
+    padding: 5px 12px 5px 12px;
+    font-size: 14px;
+    background: no-repeat;
+    margin-right: 8px;
+    cursor: pointer;
+}
